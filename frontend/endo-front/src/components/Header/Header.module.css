@@ -1,7 +1,8 @@
 .head {
     background-color: #176565;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
-    position: absolute;
+    position: relative;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -17,7 +18,6 @@
 }
 
 .title {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #fff;
     font-weight: 900;
     padding-bottom: 1.5vh;
@@ -36,7 +36,6 @@
 }
 
 .links {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #fff;
     text-decoration: none;
     font-weight: 700;
