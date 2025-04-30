@@ -1,0 +1,49 @@
+# Ambiente virtual
+venv/
+.env/
+.venv/
+
+# Arquivos Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configurações de IDEs
+.vscode/
+.idea/
+*.swp
+
+# Arquivos de log e temporários
+*.log
+*.tmp
+*.bak
+
+# Banco de dados SQLite
+*.sqlite3
+*.db
+
+# Arquivos de configuração privados
+*.env
+.env.*
+
+# Arquivos do Flask
+instance/
+*.pid
+
+# pycache dentro de qualquer pasta
+**/__pycache__/
+
+# Arquivos do pip
+pip-log.txt
+
+# Arquivos do Jupyter (caso use notebooks)
+.ipynb_checkpoints/
+
+# MacOS
+.DS_Store
+
+# Linux
+*.~*
+
+# Windows
+Thumbs.db
