@@ -19,15 +19,21 @@
     color: #FFF;
 }
 
+.title {
+    font-size: 7vh;
+    font-weight: 900;
+}
+
 .ansForm {
     width: 90%;
     background-color: #176565;
-    height: 80%;
+    height: 95%;
     opacity: 0.8;
     border-radius: 50px;
     display: flex;
     justify-content: space-between;
     padding: 3vh;
+    margin-bottom: 10vh;
 }
 
 .sideQuestion {
@@ -42,12 +48,21 @@
     height: 100%;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
 .question {
     font-size: 3vh;
     font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: #208B8B;
 }
 
 .questionAns {
@@ -81,8 +96,49 @@
     border-color: #888;
 }
 
-.radioInput:checked + .buttonLabel {
+.radioInput:checked+.buttonLabel {
     background-color: #007bff;
     color: #fff;
     border-color: #007bff;
+}
+
+.fullscreenModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.closeButton:hover {
+    background-color: #0056b3;
 }

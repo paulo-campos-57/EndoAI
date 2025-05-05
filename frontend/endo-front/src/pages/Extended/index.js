@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaQuestionCircle } from 'react-icons/fa';
 import styles from "./Extended.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 function Extended() {
+    const [showSmokerInfo, setShowSmokerInfo] = useState(false);
+
     return (
         <>
             <div className={styles.container}>
                 <Header />
                 <div className={styles.content}>
+                    <div className={styles.title}>
+                        Avaliação Extendida
+                    </div>
                     <form className={styles.ansForm}>
                         <div className={styles.sideQuestion}>
                             <div className={styles.questionContainer}>
@@ -61,7 +67,25 @@ function Extended() {
                             <div className={styles.questionContainer}>
                                 <div className={styles.question}>
                                     4. Você é ou já foi fumante?
+                                    <FaQuestionCircle
+                                        className={styles.icon}
+                                        onClick={() => setShowSmokerInfo(!showSmokerInfo)}
+                                        title="Clique para mais informações"
+                                    />
                                 </div>
+                                {showSmokerInfo && (
+                                    <div className={styles.fullscreenModal}>
+                                        <div className={styles.modalContent}>
+                                            <p>
+                                                Consideramos fumante quem já fumou pelo menos 100 cigarros ao logo da vida 
+                                                (100 cigarros são 5 caixas).
+                                            </p>
+                                            <button className={styles.closeButton} onClick={() => setShowSmokerInfo(false)}>
+                                                Fechar
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
                                 <div className={styles.questionAns}>
                                     <label className={styles.radioButton}>
                                         <input type="radio" name="Smoker" value="1" className={styles.radioInput} />
