@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import styles from "./Home.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -25,11 +26,11 @@ function Home() {
                         <div className={styles.typewriter}>EndoAI</div>
                         <div className={styles.buttons}>
                             <div className={styles.selectionButton}>
-                                Avaliação estendida
-                            </div>
-                            <div className={styles.selectionButton}>
                                 Avaliação simplificada
                             </div>
+                            <Link to='/extendido' className={styles.selectionButton}>
+                                Avaliação extendida
+                            </Link>
                         </div>
                     </div>
                 </div>

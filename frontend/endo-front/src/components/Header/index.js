@@ -15,7 +15,7 @@ function Header() {
                 <div className={styles.rightSide}>
                     <Link to='/' className={styles.links}>Início</Link>
                     <Link to='/sobre' className={styles.links}>Sobre</Link>
-                    <a href='#' className={styles.links}>EndoAI</a>
+                    <Link to='/extendido' className={styles.links}>EndoAI</Link>
                 </div>
             </div>
         </>
