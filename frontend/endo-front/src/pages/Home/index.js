@@ -21,7 +21,7 @@ function Home() {
                 <div className={styles.content}>
                     <div className={styles.salute}>
                         <h1>Bem vindo!</h1>
-                        {/*<p>{message}</p>*/}
+                        {/*<p>{message}</p> Verificação da integração*/}
                         <div className={styles.typewriter}>EndoAI</div>
                         <div className={styles.buttons}>
                             <div className={styles.selectionButton}>
