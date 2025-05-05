@@ -1,12 +1,11 @@
-from flask import Flask, render_template
-
+from flask import Flask
 from flask_cors import CORS
+from routes import routes_bp
+
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def home():
-    return render_template('index.html')  # Vai renderizar o HTML na pasta templates
+app.register_blueprint(routes_bp)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
