@@ -3,7 +3,6 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #208B8B;
 }
@@ -15,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     gap: 5vh;
-    margin-top: 10vh;
+    padding-top: 5vh;
     color: #FFF;
 }
 
@@ -31,6 +30,7 @@
     opacity: 0.8;
     border-radius: 50px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 3vh;
     margin-bottom: 10vh;
@@ -41,6 +41,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3vh;
 }
 
 .questionContainer {
@@ -55,14 +56,14 @@
     font-size: 3vh;
     font-weight: 800;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.8rem;
 }
 
 .icon:hover {
     cursor: pointer;
-    color: #208B8B;
+    color: #304ffe;
 }
 
 .questionAns {
@@ -141,4 +142,26 @@
 
 .closeButton:hover {
     background-color: #0056b3;
+}
+
+.navigationButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.navButton {
+    background-color: #3d5afe;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+    background-color: #304ffe;
 }
