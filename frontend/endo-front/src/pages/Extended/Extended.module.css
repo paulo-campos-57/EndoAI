@@ -1,5 +1,5 @@
 .container {
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
@@ -164,4 +164,16 @@
 
 .navButton:hover {
     background-color: #304ffe;
+}
+
+.numberInput {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: all 0.3s ease;
 }
