@@ -47,5 +47,6 @@ pip-log.txt
 
 # Windows
 Thumbs.db
+
 #ignorando o knn_model
-backend/knn_model.joblib
+app/knn_model.joblib
