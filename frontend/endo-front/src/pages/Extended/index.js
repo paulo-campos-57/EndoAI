@@ -5,12 +5,13 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 function Extended() {
+    const [userName, setUserName] = useState("");
     const [showSmokerInfo, setShowSmokerInfo] = useState(false);
     const [showAlcoholInfo, setShowAlcoholInfo] = useState(false);
     const [step, setStep] = useState(1);
 
     const nextStep = () => {
-        setStep(prev => Math.min(prev + 1, 2));
+        setStep(prev => Math.min(prev + 1, 3));
     };
 
     const prevStep = () => {
@@ -22,43 +23,74 @@ function Extended() {
             <div className={styles.container}>
                 <Header />
                 <div className={styles.content}>
-                    <div className={styles.title}>Avaliação Extendida</div>
+                    <div className={styles.title}>Avaliação Extendida {userName && `- ${userName}`}</div>
                     <form className={styles.ansForm}>
                         {step === 1 && (
+                            <div className={styles.firstQuestion}>
+                                <div className={styles.firstQuestionContainer}>
+                                    <div className={styles.capsule}>
+                                        <div className={styles.question}>Informe o seu nome</div>
+                                        <div className={styles.questionAns}>
+                                            <input
+                                                type="text"
+                                                name="Name"
+                                                className={styles.numberInput}
+                                                value={userName}
+                                                onChange={(e) => setUserName(e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className={styles.capsule}>
+                                        <div className={styles.question}>Informe sua idade</div>
+                                        <div className={styles.questionAns}>
+                                            <input
+                                                type="text"
+                                                name="Age"
+                                                maxLength={3}
+                                                pattern="\d{1,3}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {step === 2 && (
                             <div className={styles.question}>
                                 <div className={styles.sideQuestion}>
                                     {/* Bloco 1 de perguntas */}
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>1. Qual a sua altura? (Escreva em centímetros. Ex: 181)</div>
                                         <div className={styles.questionAns}>
-                                        <input
-                                            type="text"
-                                            name="Height"
-                                            maxLength={3}
-                                            pattern="\d{1,3}"
-                                            inputMode="numeric"
-                                            className={styles.numberInput}
-                                            onInput={(e) => {
-                                                e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-                                            }}
-                                        />                                        
+                                            <input
+                                                type="text"
+                                                name="Height"
+                                                maxLength={3}
+                                                pattern="\d{1,3}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                                onInput={(e) => {
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                }}
+                                            />
                                         </div>
                                     </div>
 
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)</div>
                                         <div className={styles.questionAns}>
-                                        <input
-                                            type="text"
-                                            name="Weight"
-                                            maxLength={3}
-                                            pattern="\d{1,3}"
-                                            inputMode="numeric"
-                                            className={styles.numberInput}
-                                            onInput={(e) => {
-                                                e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-                                            }}
-                                        />                                        
+                                            <input
+                                                type="text"
+                                                name="Weight"
+                                                maxLength={3}
+                                                pattern="\d{1,3}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                                onInput={(e) => {
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                }}
+                                            />
                                         </div>
                                     </div>
 
@@ -107,7 +139,7 @@ function Extended() {
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                    <div className={styles.question}>6. Você fez exame de colesterol nos últimos 5 anos?</div>
+                                        <div className={styles.question}>6. Você fez exame de colesterol nos últimos 5 anos?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="CholCheck" value="1" className={styles.radioInput} />
@@ -123,7 +155,7 @@ function Extended() {
                             </div>
                         )}
 
-                        {step === 2 && (
+                        {step === 3 && (
                             <div className={styles.question}>
                                 <div className={styles.sideQuestion}>
                                     {/* Bloco 2 de perguntas */}
@@ -206,7 +238,7 @@ function Extended() {
                                             <div className={styles.fullscreenModal}>
                                                 <div className={styles.modalContent}>
                                                     <p>
-                                                        Consideramos alcoólatra quem consome 14 doses por semana (para homens) ou 
+                                                        Consideramos alcoólatra quem consome 14 doses por semana (para homens) ou
                                                         10 doses por semana (para mulheres).
                                                     </p>
                                                     <button
@@ -267,12 +299,12 @@ function Extended() {
                                     Voltar
                                 </button>
                             )}
-                            {step < 2 && (
+                            {step < 3 && (
                                 <button type="button" className={styles.navButton} onClick={nextStep}>
                                     Avançar
                                 </button>
                             )}
-                            {step === 2 && (
+                            {step === 3 && (
                                 <button type="submit" className={styles.navButton}>
                                     Enviar
                                 </button>
