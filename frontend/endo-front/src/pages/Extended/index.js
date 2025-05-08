@@ -309,7 +309,7 @@ function Extended() {
                                         <label className={styles.radioButton}>
                                             <input
                                             type="radio"
-                                            name="NoDocbcCost"
+                                            name="NeedDoc"
                                             value="0"
                                             className={styles.radioInput}
                                             />
