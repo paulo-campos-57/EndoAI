@@ -8,10 +8,12 @@ function Extended() {
     const [userName, setUserName] = useState("");
     const [showSmokerInfo, setShowSmokerInfo] = useState(false);
     const [showAlcoholInfo, setShowAlcoholInfo] = useState(false);
+
+    const [showDoctorFollowup, setDoctorFollowup] = useState(false);
     const [step, setStep] = useState(1);
 
     const nextStep = () => {
-        setStep(prev => Math.min(prev + 1, 3));
+        setStep(prev => Math.min(prev + 1, 4));
     };
 
     const prevStep = () => {
@@ -128,11 +130,11 @@ function Extended() {
                                         <div className={styles.question}>5. Você já foi diagnosticado com colesterol alto?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="HighCol" value="1" className={styles.radioInput} />
+                                                <input type="radio" name="HighChol" value="1" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>SIM</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="HighCol" value="0" className={styles.radioInput} />
+                                                <input type="radio" name="HighChol" value="0" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>NÃO</span>
                                             </label>
                                         </div>
@@ -211,14 +213,14 @@ function Extended() {
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>9. Você tem ou teve alguma doença cardíaca?</div>
+                                        <div className={styles.question}>9. Você já teve/tem doença coronariana ou infarto?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="HeartDA" value="1" className={styles.radioInput} />
+                                                <input type="radio" name="HeartDiseaseorAttack" value="1" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>SIM</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="HeartDA" value="0" className={styles.radioInput} />
+                                                <input type="radio" name="HeartDiseaseorAttack" value="0" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>NÃO</span>
                                             </label>
                                         </div>
@@ -226,65 +228,186 @@ function Extended() {
                                 </div>
                                 <div className={styles.sideQuestion}>
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>
-                                            10. Você é alcoolatra?
-                                            <FaQuestionCircle
-                                                className={styles.icon}
-                                                onClick={() => setShowAlcoholInfo(!showAlcoholInfo)}
-                                                title="Clique para mais informações"
-                                            />
+                                        <div className={styles.question}>10. Você costuma praticar atividade física?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="PhysActivity" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="PhysActivity" value="0" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
                                         </div>
-                                        {showAlcoholInfo && (
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>11. Você costuma consumir uma ou mais frutas por dia?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Fruits" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Fruits" value="0" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>12. Você costuma consumir uma ou mais verduras por dia?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Veggies" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Veggies" value="0" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {step === 4 && (
+                            <div className={styles.question}>
+                                <div className={styles.sideQuestion}>
+                                    {/* Bloco 3 de perguntas */}
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>13. Você tem algum plano de saúde?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="AnyHeatlhcare" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="AnyHeatlhcare" value="0" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>
+                                        14. Você precisou de alguma consulta médica no último ano?
+                                        </div>
+
+                                        <div className={styles.questionAns}>
+                                          <label className={styles.radioButton} onClick={() => setDoctorFollowup(true)}>
+                                            <input
+                                              type="radio"
+                                              name="NeedDoc"
+                                              value="1"
+                                              className={styles.radioInput}
+                                            />
+                                            <span className={styles.buttonLabel}>SIM</span>
+                                          </label>
+
+                                        <label className={styles.radioButton}>
+                                            <input
+                                            type="radio"
+                                            name="NoDocbcCost"
+                                            value="0"
+                                            className={styles.radioInput}
+                                            />
+                                            <span className={styles.buttonLabel}>NÃO</span>
+                                        </label>
+                                        </div>
+
+                                        {showDoctorFollowup && (
                                             <div className={styles.fullscreenModal}>
                                                 <div className={styles.modalContent}>
-                                                    <p>
-                                                        Consideramos alcoólatra quem consome 14 doses por semana (para homens) ou
-                                                        10 doses por semana (para mulheres).
-                                                    </p>
-                                                    <button
-                                                        className={styles.closeButton}
-                                                        onClick={() => setShowAlcoholInfo(false)}
-                                                    >
-                                                        Fechar
-                                                    </button>
+                                                <p>Você foi no médico quando precisou?</p>
+                                                    <div className={styles.questionAnsPop}>
+                                                        <label className={styles.radioButton} onClick={() => setDoctorFollowup(false)}>
+                                                            <input type="radio" name="NoDocbcCost" value="1" className={styles.radioButtonPop}/>
+                                                            <span className={styles.buttonLabel}>SIM</span>
+                                                        </label>
+
+                                                        <label className={styles.radioButton} onClick={() => setDoctorFollowup(false)}>
+                                                            <input type="radio" name="NoDocbcCost" value="0" className={styles.radioButtonPop}/>
+                                                            <span className={styles.buttonLabel}>NÃO</span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         )}
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>15. Você diria que sua saúde é?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="HvyAlcohol" value="1" className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>SIM</span>
+                                                <input type="radio" name="GenHlth" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>EXCELENTE</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="HvyAlcohol" value="0" className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>NÃO</span>
+                                                <input type="radio" name="GenHlth" value="2" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MUITO BOA</span>
                                             </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="3" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>BOA</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="4" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>REGULAR</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="5" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>RUIM</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className={styles.sideQuestion}>
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>16. No último mês, em quantos dias sua saúde mental não estava boa?</div>
+                                        <div className={styles.questionAns}>
+                                            <input
+                                                type="text"
+                                                name="MentHlth"
+                                                maxLength={2}
+                                                pattern="\d{1,2}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                                onInput={(e) => {
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                }}
+                                            />
                                         </div>
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>11. Você tem algum plano de saúde</div>
+                                        <div className={styles.question}>17. No último mês, em quantos dias sua saúde física não estava boa?</div>
                                         <div className={styles.questionAns}>
-                                            <label className={styles.radioButton}>
-                                                <input type="radio" name="HealthCare" value="1" className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>SIM</span>
-                                            </label>
-                                            <label className={styles.radioButton}>
-                                                <input type="radio" name="HealthCare" value="0" className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>NÃO</span>
-                                            </label>
+                                            <input
+                                                type="text"
+                                                name="PhysHlth"
+                                                maxLength={2}
+                                                pattern="\d{1,2}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                                onInput={(e) => {
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                }}
+                                            />
                                         </div>
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>12. Você precisou de alguma consulta médica nos últimos 12 meses?</div>
+                                        <div className={styles.question}>18. Você sente dificuldade ao subir escadas?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="NoDobsCost" value="1" className={styles.radioInput} />
+                                                <input type="radio" name="DiffWalk" value="1" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>SIM</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="NoDobsCost" value="0" className={styles.radioInput} />
+                                                <input type="radio" name="DiffWalk" value="0" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>NÃO</span>
                                             </label>
                                         </div>
@@ -299,12 +422,12 @@ function Extended() {
                                     Voltar
                                 </button>
                             )}
-                            {step < 3 && (
+                            {step < 4 && (
                                 <button type="button" className={styles.navButton} onClick={nextStep}>
                                     Avançar
                                 </button>
                             )}
-                            {step === 3 && (
+                            {step === 4 && (
                                 <button type="submit" className={styles.navButton}>
                                     Enviar
                                 </button>

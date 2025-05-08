@@ -202,3 +202,14 @@
     color: #333;
     transition: all 0.3s ease;
 }
+
+.questionAnsPop {
+    justify-content: center;
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.radioButtonPop {
+    display: none;
+}
