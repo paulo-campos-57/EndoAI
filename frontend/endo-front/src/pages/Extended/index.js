@@ -21,7 +21,7 @@ function Extended() {
     };
 
     const nextStep = () => {
-        setStep(prev => Math.min(prev + 1, 4));
+        setStep(prev => Math.min(prev + 1, 6));
     };
 
     const prevStep = () => {
@@ -168,7 +168,7 @@ function Extended() {
                         {step === 3 && (
                             <div className={styles.question}>
                                 <div className={styles.sideQuestion}>
-                                    {/* Bloco 2 de perguntas */}
+                                    {/* Bloco 3 de perguntas */}
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>
                                             7. Você é ou já foi fumante?
@@ -283,9 +283,45 @@ function Extended() {
                         {step === 4 && (
                             <div className={styles.question}>
                                 <div className={styles.sideQuestion}>
-                                    {/* Bloco 3 de perguntas */}
+                                    {/* Bloco 4 de perguntas */}
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>13. Você tem algum plano de saúde?</div>
+                                        <div className={styles.question}>
+                                            13. Você bebe álcool em excesso por semana?
+                                            <FaQuestionCircle
+                                                className={styles.icon}
+                                                onClick={() => setShowAlcoholInfo(!showAlcoholInfo)}
+                                                title="Clique para mais informações"
+                                            />
+                                        </div>
+                                        {showAlcoholInfo && (
+                                            <div className={styles.fullscreenModal}>
+                                                <div className={styles.modalContent}>
+                                                    <p>
+                                                        Excesso é mais de 14 copos por semana (homens) ou mais de 7 copos (mulheres).
+                                                    </p>
+                                                    <button
+                                                        className={styles.closeButton}
+                                                        onClick={() => setShowAlcoholInfo(false)}
+                                                    >
+                                                        Fechar
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="HvyAlcoholConsump" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="HvyAlcoholConsump" value="0" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>14. Você tem algum plano de saúde?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="AnyHeatlhcare" value="1" className={styles.radioInput} />
@@ -300,7 +336,7 @@ function Extended() {
 
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>
-                                            14. Você precisou de alguma consulta médica no último ano?
+                                            15. Você precisou de alguma consulta médica no último ano?
                                         </div>
 
                                         <div className={styles.questionAns}>
@@ -344,9 +380,11 @@ function Extended() {
                                             </div>
                                         )}
                                     </div>
+                                </div>
 
-                                    <div className={styles.questionContainer}>
-                                        <div className={styles.question}>15. Você diria que sua saúde é?</div>
+                                <div className={styles.sideQuestion}>
+                                <div className={styles.questionContainer}>
+                                        <div className={styles.question}>16. Você diria que sua saúde é?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="GenHlth" value="1" className={styles.radioInput} />
@@ -370,11 +408,9 @@ function Extended() {
                                             </label>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className={styles.sideQuestion}>
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>16. No último mês, em quantos dias sua saúde mental não estava boa?</div>
+                                        <div className={styles.question}>17. No último mês, em quantos dias sua saúde mental não estava boa?</div>
                                         <div className={styles.questionAns}>
                                             <input
                                                 type="text"
@@ -391,7 +427,7 @@ function Extended() {
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>17. No último mês, em quantos dias sua saúde física não estava boa?</div>
+                                        <div className={styles.question}>18. No último mês, em quantos dias sua saúde física não estava boa?</div>
                                         <div className={styles.questionAns}>
                                             <input
                                                 type="text"
@@ -406,9 +442,16 @@ function Extended() {
                                             />
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        )}
 
+                        {step === 5 && (
+                            <div className={styles.question}>
+                                <div className={styles.sideQuestion}>
+                                    {/* Bloco 5 de perguntas */}
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>18. Você sente dificuldade ao subir escadas?</div>
+                                        <div className={styles.question}>19. Você sente dificuldade ao subir escadas?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="DiffWalk" value="1" className={styles.radioInput} />
@@ -417,6 +460,101 @@ function Extended() {
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="DiffWalk" value="0" className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>20. Você é uma pessoa diagnosticada com diabetes?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Diabetes_012" value="2" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Diabetes_012" value="0" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="Diabetes_012" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>PRÉ-DIABÉTICO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className={styles.sideQuestion}>
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>21. Qual  seu nível de escolaridade?</div>
+                                        <div className={styles.questionAnsMultiple}>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Education" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NUNCA FREQUENTEI OU JARDIM DE INFÃNCIA</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Education" value="2" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>ENSINO FUNDAMENTAL INCOMPLETO / COMPLETO</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Education" value="3" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>ENSINO MÉDIO INCOMPLETO</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Education" value="4" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>ENSINO MÉDIO COMPLETO</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Education" value="5" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>CURSO TÉCNICO / ENSINO SUPERIOR INCOMPLETO</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Education" value="6" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>ENSINO SUPERIOR COMPLETO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {step === 6 && (
+                            <div className={styles.question}>
+                                <div className={styles.sideQuestion}>
+                                    {/* Bloco 6 de perguntas */}
+                                    <div className={styles.questionContainerMultiple}>
+                                        <div className={styles.question}>22. Qual sua renda média anual?</div>
+                                        <div className={styles.questionAnsMultiple}>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="1" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 10.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="2" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 15.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="3" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 20.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="4" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 25.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="5" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 35.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="6" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 50.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="7" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MENOS DE 75.000</span>
+                                            </label>
+                                            <label className={styles.radioButtonMultiple}>
+                                                <input type="radio" name="Income" value="8" className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MAIS DE 75.000</span>
                                             </label>
                                         </div>
                                     </div>
@@ -430,12 +568,12 @@ function Extended() {
                                     Voltar
                                 </button>
                             )}
-                            {step < 4 && (
+                            {step < 6 && (
                                 <button type="button" className={styles.navButton} onClick={nextStep}>
                                     Avançar
                                 </button>
                             )}
-                            {step === 4 && (
+                            {step === 6 && (
                                 <button type="submit" className={styles.navButton}>
                                     Enviar
                                 </button>
@@ -444,7 +582,7 @@ function Extended() {
                         <div className={styles.progressBar}>
                             <div
                                 className={styles.progress}
-                                style={{ width: `${(step / 4) * 100}%` }}
+                                style={{ width: `${(step / 6) * 100}%` }}
                             ></div>
                         </div>
                     </form>
