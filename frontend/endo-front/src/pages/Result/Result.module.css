@@ -1,0 +1,25 @@
+.container {
+    height: 100vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #208B8B;
+}
+
+.content {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    padding-top: 5vh;
+    color: #FFF;
+}
+
+.title {
+    font-size: 7vh;
+    font-weight: 900;
+}

@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import { FaQuestionCircle } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 import styles from "./Extended.module.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 function Extended() {
+    const navigate = useNavigate();
+
     const [userName, setUserName] = useState("");
     const [showSmokerInfo, setShowSmokerInfo] = useState(false);
     const [showAlcoholInfo, setShowAlcoholInfo] = useState(false);
 
     const [showDoctorFollowup, setDoctorFollowup] = useState(false);
     const [step, setStep] = useState(1);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate("/resultado", { state: { userName } });
+    };
 
     const nextStep = () => {
         setStep(prev => Math.min(prev + 1, 4));
@@ -26,7 +34,7 @@ function Extended() {
                 <Header />
                 <div className={styles.content}>
                     <div className={styles.title}>Avaliação Extendida {userName && `- ${userName}`}</div>
-                    <form className={styles.ansForm}>
+                    <form className={styles.ansForm} onSubmit={handleSubmit}>
                         {step === 1 && (
                             <div className={styles.firstQuestion}>
                                 <div className={styles.firstQuestionContainer}>
