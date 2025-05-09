@@ -292,43 +292,43 @@ function Extended() {
 
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>
-                                        14. Você precisou de alguma consulta médica no último ano?
+                                            14. Você precisou de alguma consulta médica no último ano?
                                         </div>
 
                                         <div className={styles.questionAns}>
-                                          <label className={styles.radioButton} onClick={() => setDoctorFollowup(true)}>
-                                            <input
-                                              type="radio"
-                                              name="NeedDoc"
-                                              value="1"
-                                              className={styles.radioInput}
-                                            />
-                                            <span className={styles.buttonLabel}>SIM</span>
-                                          </label>
+                                            <label className={styles.radioButton} onClick={() => setDoctorFollowup(true)}>
+                                                <input
+                                                    type="radio"
+                                                    name="NeedDoc"
+                                                    value="1"
+                                                    className={styles.radioInput}
+                                                />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
 
-                                        <label className={styles.radioButton}>
-                                            <input
-                                            type="radio"
-                                            name="NeedDoc"
-                                            value="0"
-                                            className={styles.radioInput}
-                                            />
-                                            <span className={styles.buttonLabel}>NÃO</span>
-                                        </label>
+                                            <label className={styles.radioButton}>
+                                                <input
+                                                    type="radio"
+                                                    name="NeedDoc"
+                                                    value="0"
+                                                    className={styles.radioInput}
+                                                />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
                                         </div>
 
                                         {showDoctorFollowup && (
                                             <div className={styles.fullscreenModal}>
                                                 <div className={styles.modalContent}>
-                                                <p>Você foi no médico quando precisou?</p>
+                                                    <p>Você foi no médico quando precisou?</p>
                                                     <div className={styles.questionAnsPop}>
                                                         <label className={styles.radioButton} onClick={() => setDoctorFollowup(false)}>
-                                                            <input type="radio" name="NoDocbcCost" value="1" className={styles.radioButtonPop}/>
+                                                            <input type="radio" name="NoDocbcCost" value="1" className={styles.radioButtonPop} />
                                                             <span className={styles.buttonLabel}>SIM</span>
                                                         </label>
 
                                                         <label className={styles.radioButton} onClick={() => setDoctorFollowup(false)}>
-                                                            <input type="radio" name="NoDocbcCost" value="0" className={styles.radioButtonPop}/>
+                                                            <input type="radio" name="NoDocbcCost" value="0" className={styles.radioButtonPop} />
                                                             <span className={styles.buttonLabel}>NÃO</span>
                                                         </label>
                                                     </div>
@@ -432,6 +432,12 @@ function Extended() {
                                     Enviar
                                 </button>
                             )}
+                        </div>
+                        <div className={styles.progressBar}>
+                            <div
+                                className={styles.progress}
+                                style={{ width: `${(step / 4) * 100}%` }}
+                            ></div>
                         </div>
                     </form>
                 </div>
