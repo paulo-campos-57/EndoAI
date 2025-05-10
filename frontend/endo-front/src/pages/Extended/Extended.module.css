@@ -229,13 +229,34 @@
     display: none;
 }
 
-.questionAnsMultiple {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
+.selectInput {
+    display: inline-block;
+    width: 100%;
+    max-width: 480px;
+    padding: 0.75rem 2rem;
+
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: inherit;
+
+    background-color: #f0f0f0;
+    color: #333;
+
+    transition: all 0.3s ease;
+    appearance: none; 
+
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='7' viewBox='0 0 10 7' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 10px 7px;
 }
 
-.radioButtonMultiple {
-    cursor: pointer;
+.selectInput:hover,
+.selectInput:focus {
+    border-color: #888;
+    background-color: #e0e0e0;
+    outline: none;
 }
