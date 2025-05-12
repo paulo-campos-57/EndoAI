@@ -25,9 +25,9 @@ function Home() {
                         {/*<p>{message}</p> Verificação da integração*/}
                         <div className={styles.typewriter}>EndoAI</div>
                         <div className={styles.buttons}>
-                            <div className={styles.selectionButton}>
+                            <Link to='/simplificado' className={styles.selectionButton}>
                                 Avaliação simplificada
-                            </div>
+                            </Link>
                             <Link to='/extendido' className={styles.selectionButton}>
                                 Avaliação extendida
                             </Link>
