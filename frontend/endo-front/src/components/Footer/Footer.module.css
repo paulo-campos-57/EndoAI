@@ -1,9 +1,10 @@
 .foot {
     background-color: #176565;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: monospace;
     width: 100%;
     position: relative;
     min-height: 10vh;
+    font-size: 2vh;
     display: flex;
     justify-content: center;
     align-items: center;
