@@ -4,10 +4,15 @@
     width: 100%;
     position: relative;
     min-height: 10vh;
-    font-size: 2vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 900;
+    flex-direction: column;
+    gap: 1vh;
     color: #FFF;
+}
+
+.title {
+    font-size: 2vh;
+    font-weight: 900;
 }

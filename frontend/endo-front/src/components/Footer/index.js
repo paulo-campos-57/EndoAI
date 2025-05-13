@@ -5,7 +5,12 @@ function Footer () {
     return(
         <>
             <div className={styles.foot}>
-                EndoAI
+                <div className={styles.title}>
+                    EndoAI
+                </div>
+                <div className={styles.subtitle}>
+                    Não substitui o diagnóstico de um profissional da saúde!
+                </div>
             </div>
         </>
     );
