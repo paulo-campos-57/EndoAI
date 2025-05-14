@@ -1,5 +1,9 @@
 # EndoAI
 Repositório destinado ao projeto EndoAI
 
-## Importante
-Para funcionamento correto do backend, baixe o arquivo knn_model.joblib (encontrado <a href="https://drive.google.com/drive/folders/1VpxMc4UX5-2H3FxtRxYsmKo6XyRLUoGH?usp=drive_link">aqui</a>) e o insira na pasta <b>app</b> dentro do backend do projeto.
+## Requisitos
+Para rodar este projeto é necessário cumprir os seguintes requisitos:
+- Python 3.12.3 ou superior;
+- npm 10.9.2 ou superior;
+- node 18.19.1 ou superior
+- git LFS;
