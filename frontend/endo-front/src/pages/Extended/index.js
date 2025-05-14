@@ -89,7 +89,15 @@ function Extended() {
 
     const nextStep = () => {
         if (!isCurrentStepValid) {
-            alert('Preencha todos os campos antes de avançar.');
+            toast.error('Por favor, preencha todos os campos do formulário antes de enviar.', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "colored",
+            });
             return;
         }
         setStep(prev => Math.min(prev + 1, 5));
@@ -101,8 +109,8 @@ function Extended() {
 
     return (
         <>
+            <ToastContainer />
             <div className={styles.container}>
-                <ToastContainer />
                 <Header />
                 <div className={styles.content}>
                     <div className={styles.title}>Avaliação Extendida {formData.userName && `- ${formData.userName}`}</div>

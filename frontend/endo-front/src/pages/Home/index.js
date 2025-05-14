@@ -62,7 +62,7 @@ function Home() {
                         <div className={styles.popup}>
                             <h3>Termo de responsabilidade</h3>
                             <p>
-                                Ao continuar, você declara estar ciente de que esta análise tem fins exclusivamente informativos e **não substitui uma avaliação médica profissional**.
+                                Ao continuar, você declara estar ciente de que esta análise tem fins exclusivamente informativos e <strong>**não substitui uma avaliação médica profissional**. </strong>
                             </p>
                             <div className={styles.popupButtons}>
                                 <button onClick={handleConfirm} className={styles.confirmButton}>
