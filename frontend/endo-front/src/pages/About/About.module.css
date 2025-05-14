@@ -33,7 +33,7 @@
 .block {
     background-color: #176565;
     width: 20%;
-    height: 30vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,6 +69,11 @@
 .typewriter3 {
     width: 15ch;
     animation: typing3 1.5s steps(15, end) 1s forwards, blink 0.75s step-end infinite;
+}
+
+.fontText {
+    font-size: 2.25vh;
+    text-align: justify;
 }
 
 @keyframes typing1 {
