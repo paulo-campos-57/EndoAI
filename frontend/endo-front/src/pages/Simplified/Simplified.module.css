@@ -17,3 +17,80 @@
     padding-top: 5vh;
     color: #FFF;
 }
+
+.title {
+    font-size: 7vh;
+    font-weight: 900;
+}
+
+.ansForm {
+    width: 90%;
+    background-color: #176565;
+    height: 95%;
+    opacity: 0.8;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3vh;
+    margin-bottom: 10vh;
+}
+
+.firstQuestion {
+    font-size: 3vh;
+    font-weight: 800;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstQuestionContainer {
+    display: flex;
+    height: 100%;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.capsule {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    font-size: 3vh;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.questionAns {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.numberInput {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.navigationButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
