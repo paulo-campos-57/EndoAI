@@ -107,6 +107,10 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <br>
         <sub>gsr@cesar.school</sub>
       </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
       <td align="center">
         <a href="https://github.com/MatheusGom">
           <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus G"/><br>
@@ -211,7 +215,7 @@ To run this project, is necessary to follow the following steps:
     ##
 <div align="center">
   <h2>Our Developers</h2>
-  <table>
+    <table>
     <tr>
       <td align="center">
         <a href="https://github.com/paixaoao">
@@ -253,7 +257,11 @@ To run this project, is necessary to follow the following steps:
         <br>
         <sub>gsr@cesar.school</sub>
       </td>
-        <td align="center">
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td align="center">
         <a href="https://github.com/MatheusGom">
           <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus G"/><br>
           <sub>
@@ -263,7 +271,7 @@ To run this project, is necessary to follow the following steps:
         <br>
         <sub>mga@cesar.school</sub>
       </td>
-      <td align="center">
+        <td align="center">
         <a href="https://github.com/Mavebibo">
           <img src="https://avatars.githubusercontent.com/u/112356542?v=4" width="100px;" alt="Foto Matheus V"/><br>
           <sub>
