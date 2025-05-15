@@ -39,7 +39,6 @@ function Extended() {
         MentHlth: "",
         PhysHlth: "",
         DiffWalk: "",
-        Diabetes_012: "",
         Education: "",
         Income: ""
     });
@@ -61,7 +60,7 @@ function Extended() {
         2: ['Height', 'Weight', 'Sex', 'HighBP', 'HighChol', 'CholCheck'],
         3: ['Smoker', 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies'],
         4: ['HvyAlcoholConsump', 'AnyHealthcare', 'NeedDoc', 'NoDocbcCost', 'GenHlth', 'MentHlth', 'PhysHlth'],
-        5: ['DiffWalk', 'Diabetes_012', 'Education', 'Income']
+        5: ['DiffWalk', 'Education', 'Income']
     };
 
     const isCurrentStepValid = fieldsByStep[step].every(
@@ -657,38 +656,13 @@ function Extended() {
                                         </div>
                                     </div>
 
-                                    <div className={styles.questionContainer}>
-                                        <div className={styles.question}>20. Você é uma pessoa diagnosticada com diabetes?</div>
-                                        <div className={styles.questionAns}>
-                                            <label className={styles.radioButton}>
-                                                <input type="radio" name="Diabetes_012" value="2"
-                                                    checked={formData.Diabetes_012 === "2"}
-                                                    onChange={e => setFormData(fd => ({ ...fd, Diabetes_012: e.target.value }))}
-                                                    className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>SIM</span>
-                                            </label>
-                                            <label className={styles.radioButton}>
-                                                <input type="radio" name="Diabetes_012" value="0"
-                                                    checked={formData.Diabetes_012 === "0"}
-                                                    onChange={e => setFormData(fd => ({ ...fd, Diabetes_012: e.target.value }))}
-                                                    className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>NÃO</span>
-                                            </label>
-                                            <label className={styles.radioButton}>
-                                                <input type="radio" name="Diabetes_012" value="1"
-                                                    checked={formData.Diabetes_012 === "1"}
-                                                    onChange={e => setFormData(fd => ({ ...fd, Diabetes_012: e.target.value }))}
-                                                    className={styles.radioInput} />
-                                                <span className={styles.buttonLabel}>PRÉ-DIABÉTICO</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
 
                                 <div className={styles.sideQuestion}>
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>
-                                            21. Qual seu nível de escolaridade?
+                                            20. Qual seu nível de escolaridade?
                                         </div>
                                         <div>
                                             <select
@@ -723,7 +697,7 @@ function Extended() {
 
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>
-                                            22. Qual sua renda média anual?
+                                            21. Qual sua renda média anual?
                                         </div>
                                         <div>
                                             <select
