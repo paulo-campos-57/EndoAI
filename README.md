@@ -99,7 +99,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
       </td>
       <td align="center">
         <a href="https://github.com/grossiter04">
-          <img src="https://avatars.githubusercontent.com/u/116268469?v=4" width="100px;" alt="Foto Matheus"/><br>
+          <img src="https://avatars.githubusercontent.com/u/116268469?v=4" width="100px;" alt="Foto Rossiter"/><br>
           <sub>
             <b>Gabriel Rossiter</b>
           </sub>
@@ -107,15 +107,25 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <br>
         <sub>gsr@cesar.school</sub>
       </td>
-        <td align="center">
+      <td align="center">
         <a href="https://github.com/MatheusGom">
-          <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus"/><br>
+          <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus G"/><br>
           <sub>
             <b>Matheus Gomes</b>
           </sub>
         </a>
         <br>
         <sub>mga@cesar.school</sub>
+      </td>
+        <td align="center">
+        <a href="https://github.com/Mavebibo">
+          <img src="https://avatars.githubusercontent.com/u/112356542?v=4" width="100px;" alt="Foto Matheus V"/><br>
+          <sub>
+            <b>Matheus Vellez</b>
+          </sub>
+        </a>
+        <br>
+        <sub>mvbb@cesar.school</sub>
       </td>
           <td align="center">
         <a href="https://github.com/paulo-campos-57">
@@ -235,7 +245,7 @@ To run this project, is necessary to follow the following steps:
       </td>
       <td align="center">
         <a href="https://github.com/grossiter04">
-          <img src="https://avatars.githubusercontent.com/u/116268469?v=4" width="100px;" alt="Foto Matheus"/><br>
+          <img src="https://avatars.githubusercontent.com/u/116268469?v=4" width="100px;" alt="Foto Rossiter"/><br>
           <sub>
             <b>Gabriel Rossiter</b>
           </sub>
@@ -245,13 +255,23 @@ To run this project, is necessary to follow the following steps:
       </td>
         <td align="center">
         <a href="https://github.com/MatheusGom">
-          <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus"/><br>
+          <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus G"/><br>
           <sub>
             <b>Matheus Gomes</b>
           </sub>
         </a>
         <br>
         <sub>mga@cesar.school</sub>
+      </td>
+      <td align="center">
+        <a href="https://github.com/Mavebibo">
+          <img src="https://avatars.githubusercontent.com/u/112356542?v=4" width="100px;" alt="Foto Matheus V"/><br>
+          <sub>
+            <b>Matheus Vellez</b>
+          </sub>
+        </a>
+        <br>
+        <sub>mvbb@cesar.school</sub>
       </td>
           <td align="center">
         <a href="https://github.com/paulo-campos-57">
