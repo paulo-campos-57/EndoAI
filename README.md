@@ -6,23 +6,26 @@
 Repositório destinado ao projeto de dashboard para a startup Cattuccino, da disciplina de Projetos 6, do 6° período no CESAR School.<br>
 
 ## Descrição
-O projeto desenvolvido é uma interface para um modelo de machine learning que tem como principal diretriz a prevenção de casos de diabetes, <strong>sempre incentivando o usuário a buscar o diagnóstico de um profissional da saúde.</strong> Mais informações podem ser encontradas em nosso <a href="https://sites.google.com/cesar.school/endo-ai/home">google sites</a> e nosso <a href="https://drive.google.com/drive/folders/1NskF5VEnYzHEWuR-ODKwKahWOmKkTWXW?usp=drive_link">drive.</a>
+O projeto desenvolvido é uma interface para um modelo de machine learning que tem como principal diretriz a prevenção de casos de diabetes, <strong>sempre incentivando o usuário a buscar o diagnóstico de um profissional da saúde.</strong> Mais informações podem ser encontradas em nosso <a href="https://sites.google.com/cesar.school/endo-ai/home" target="_blank">google sites</a> e nosso <a href="https://drive.google.com/drive/folders/1NskF5VEnYzHEWuR-ODKwKahWOmKkTWXW?usp=drive_link" target="_blank">drive.</a>
 
 ## Requisitos
 Para rodar este projeto é necessário cumprir os seguintes requisitos:
 - Python 3.12.3 ou superior;
 - npm 10.9.2 ou superior;
 - node 18.19.1 ou superior
-- git LFS;
 
 ## Execução
 Para executar o projeto, é necessário seguir os seguintes passos:
-- Clonar o repositório em sua máquina usando o comando: 
-  <dt>
-
-      git clone https://github.com/paulo-campos-57/EndoAI.git
-  </dt>
-
+- <strong>Clonando o respositório:</strong>
+    - Clone o repositório para a sua máquina usando o comando:
+      <dt>
+    
+          git clone https://github.com/paulo-campos-57/EndoAI.git
+      </dt>
+  - Em seguida, baixe os seguintes arquivos, e os adiciones nas respectivas pastas:
+    - Insira esse arquivo na pasta EndoAI/backend: <a href="https://drive.google.com/drive/folders/1-Kt1PW9iQQM1nk8Suk2EFoSAFXZb6K4_?usp=drive_link" target="_blank">joblib(back-end)</a>
+    - Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/14cqtZLHXhVZD56xHe1-uOF40e4AiiYZE?usp=drive_link" target="_blank">joblib(app)</a>
+    - Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1XaaaQXEXGgDgDGBM1_JHOj5-3ce5wFuU?usp=drive_link" target="_blank">Modelo KNN</a>
 - <strong>Iniciando o servidor Back-end:</strong>
   - Navegue até a pasta backend do projeto (EndoAI/backend)
   - Inicie o ambiente virtual:
@@ -68,7 +71,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/paixaoao">
+        <a href="https://github.com/paixaoao" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/126728380?v=4" width="100px;" alt="Foto Paixão"/><br>
           <sub>
             <b>Arthur Paixão</b>
@@ -78,7 +81,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <sub>aptm@cesar.school</sub>
       </td>
           <td align="center">
-        <a href="https://github.com/DiogoHMC">
+        <a href="https://github.com/DiogoHMC" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/116087739?v=4" width="100px;" alt="Foto Diogo"/><br>
           <sub>
             <b>Diogo Henrique</b>
@@ -88,7 +91,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <sub>dhmc@cesar.school</sub>
       </td>
       <td align="center">
-        <a href="https://github.com/EstelaLacerda">
+        <a href="https://github.com/EstelaLacerda" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/117921412?v=4" width="100px;" alt="Foto Estela"/><br>
           <sub>
             <b>Estela Lacerda</b>
@@ -98,7 +101,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <sub>elo@cesar.school</sub>
       </td>
       <td align="center">
-        <a href="https://github.com/grossiter04">
+        <a href="https://github.com/grossiter04" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/116268469?v=4" width="100px;" alt="Foto Rossiter"/><br>
           <sub>
             <b>Gabriel Rossiter</b>
@@ -112,7 +115,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/MatheusGom">
+        <a href="https://github.com/MatheusGom" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus G"/><br>
           <sub>
             <b>Matheus Gomes</b>
@@ -122,7 +125,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <sub>mga@cesar.school</sub>
       </td>
         <td align="center">
-        <a href="https://github.com/Mavebibo">
+        <a href="https://github.com/Mavebibo" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/112356542?v=4" width="100px;" alt="Foto Matheus V"/><br>
           <sub>
             <b>Matheus Vellez</b>
@@ -132,7 +135,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
         <sub>mvbb@cesar.school</sub>
       </td>
           <td align="center">
-        <a href="https://github.com/paulo-campos-57">
+        <a href="https://github.com/paulo-campos-57" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/77108503?v=4" width="100px;" alt="Foto Paulo"/><br>
           <sub>
             <b>Paulo Campos</b>
@@ -144,7 +147,6 @@ Para executar o projeto, é necessário seguir os seguintes passos:
     </tr>
   </table>
 </div>
-<br>
 
 ##
 
@@ -156,22 +158,26 @@ Para executar o projeto, é necessário seguir os seguintes passos:
 Repository dedicated to the dashboard project for the startup Cattuccino, from the Projects 6 course, in the 6th semester at CESAR School.<br>
 
 ## Description
-The developed project is an interface for a machine learning model primarily aimed at preventing diabetes cases, <strong>always encouraging the user to seek a diagnosis from a healthcare professional.</strong> More information can be found on our <a href="https://sites.google.com/cesar.school/endo-ai/home">Google Sites</a> and our <a href="https://drive.google.com/drive/folders/1NskF5VEnYzHEWuR-ODKwKahWOmKkTWXW?usp=drive_link">Drive</a>.
+The developed project is an interface for a machine learning model primarily aimed at preventing diabetes cases, <strong>always encouraging the user to seek a diagnosis from a healthcare professional.</strong> More information can be found on our <a href="https://sites.google.com/cesar.school/endo-ai/home" target="_blank">Google Sites</a> and our <a href="https://drive.google.com/drive/folders/1NskF5VEnYzHEWuR-ODKwKahWOmKkTWXW?usp=drive_link" target="_blank">Drive</a>.
 
 ## Requirements
 To run this project, the following requirements must be met:
 - Python 3.12.3 or higher;
 - npm 10.9.2 or higher;
 - node 18.19.1 or higher;
-- git LFS;
 
 ## How to run
 To run this project, is necessary to follow the following steps:
-- Clone the repository in your machine using the command:
-  <dt>
-
-      git clone https://github.com/paulo-campos-57/EndoAI.git
-  </dt>
+- <strong>Cloning the repository:</strong>
+    - Clone the repository to your machine using the command:
+      <dt>
+    
+          git clone https://github.com/paulo-campos-57/EndoAI.git
+      </dt>
+  - Then, download the following files and add them to their respective folders:
+    - Place this file in the EndoAI/backend folder: <a href="https://drive.google.com/drive/folders/1-Kt1PW9iQQM1nk8Suk2EFoSAFXZb6K4_?usp=drive_link" target="_blank">joblib (back-end)</a>
+    - Place this file in the EndoAI/backend/app folder: <a href="https://drive.google.com/drive/folders/14cqtZLHXhVZD56xHe1-uOF40e4AiiYZE?usp=drive_link" target="_blank">joblib (app)</a>
+    - Place this file in the EndoAI/backend/app folder: <a href="https://drive.google.com/drive/folders/1XaaaQXEXGgDgDGBM1_JHOj5-3ce5wFuU?usp=drive_link" target="_blank">KNN Model</a>
 
 - <strong>Starting Back-end server:</strong>
   - Go to the project backend folder (EndoAI/backend).
@@ -218,7 +224,7 @@ To run this project, is necessary to follow the following steps:
     <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/paixaoao">
+        <a href="https://github.com/paixaoao" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/126728380?v=4" width="100px;" alt="Foto Paixão"/><br>
           <sub>
             <b>Arthur Paixão</b>
@@ -228,7 +234,7 @@ To run this project, is necessary to follow the following steps:
         <sub>aptm@cesar.school</sub>
       </td>
           <td align="center">
-        <a href="https://github.com/DiogoHMC">
+        <a href="https://github.com/DiogoHMC" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/116087739?v=4" width="100px;" alt="Foto Diogo"/><br>
           <sub>
             <b>Diogo Henrique</b>
@@ -238,7 +244,7 @@ To run this project, is necessary to follow the following steps:
         <sub>dhmc@cesar.school</sub>
       </td>
       <td align="center">
-        <a href="https://github.com/EstelaLacerda">
+        <a href="https://github.com/EstelaLacerda" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/117921412?v=4" width="100px;" alt="Foto Estela"/><br>
           <sub>
             <b>Estela Lacerda</b>
@@ -248,7 +254,7 @@ To run this project, is necessary to follow the following steps:
         <sub>elo@cesar.school</sub>
       </td>
       <td align="center">
-        <a href="https://github.com/grossiter04">
+        <a href="https://github.com/grossiter04" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/116268469?v=4" width="100px;" alt="Foto Rossiter"/><br>
           <sub>
             <b>Gabriel Rossiter</b>
@@ -262,7 +268,7 @@ To run this project, is necessary to follow the following steps:
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/MatheusGom">
+        <a href="https://github.com/MatheusGom" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/117746778?v=4" width="100px;" alt="Foto Matheus G"/><br>
           <sub>
             <b>Matheus Gomes</b>
@@ -272,7 +278,7 @@ To run this project, is necessary to follow the following steps:
         <sub>mga@cesar.school</sub>
       </td>
         <td align="center">
-        <a href="https://github.com/Mavebibo">
+        <a href="https://github.com/Mavebibo" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/112356542?v=4" width="100px;" alt="Foto Matheus V"/><br>
           <sub>
             <b>Matheus Vellez</b>
@@ -282,7 +288,7 @@ To run this project, is necessary to follow the following steps:
         <sub>mvbb@cesar.school</sub>
       </td>
           <td align="center">
-        <a href="https://github.com/paulo-campos-57">
+        <a href="https://github.com/paulo-campos-57" target="_blank">
           <img src="https://avatars.githubusercontent.com/u/77108503?v=4" width="100px;" alt="Foto Paulo"/><br>
           <sub>
             <b>Paulo Campos</b>
@@ -294,4 +300,3 @@ To run this project, is necessary to follow the following steps:
     </tr>
   </table>
 </div>
-<br>
