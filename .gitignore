@@ -48,3 +48,7 @@ pip-log.txt
 # Windows
 Thumbs.db
 
+# Arquivos joblib
+*.joblib
+
+
