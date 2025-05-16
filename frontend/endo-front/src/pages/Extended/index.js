@@ -133,7 +133,7 @@ function Extended() {
                                         <div className={styles.question}>Informe sua idade</div>
                                         <div className={styles.questionAns}>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 name="Age"
                                                 maxLength={3}
                                                 pattern="\d{1,3}"
@@ -155,7 +155,7 @@ function Extended() {
                                         <div className={styles.question}>1. Qual a sua altura? (Escreva em centímetros. Ex: 181)</div>
                                         <div className={styles.questionAns}>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 name="Height"
                                                 maxLength={3}
                                                 pattern="\d{1,3}"
@@ -174,7 +174,7 @@ function Extended() {
                                         <div className={styles.question}>2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)</div>
                                         <div className={styles.questionAns}>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 name="Weight"
                                                 maxLength={3}
                                                 pattern="\d{1,3}"
@@ -595,7 +595,7 @@ function Extended() {
                                         <div className={styles.question}>17. No último mês, em quantos dias sua saúde mental não estava boa?</div>
                                         <div className={styles.questionAns}>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 name="MentHlth"
                                                 maxLength={2}
                                                 pattern="\d{1,2}"
@@ -614,7 +614,7 @@ function Extended() {
                                         <div className={styles.question}>18. No último mês, em quantos dias sua saúde física não estava boa?</div>
                                         <div className={styles.questionAns}>
                                             <input
-                                                type="text"
+                                                type="number"
                                                 name="PhysHlth"
                                                 maxLength={2}
                                                 pattern="\d{1,2}"

@@ -1,6 +1,6 @@
 .container {
     min-height: 100vh;
-    font-family: monospace;    
+    font-family: monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,6 +74,130 @@
     display: flex;
     gap: 1.5rem;
     margin-top: 1rem;
+}
+
+.sideQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+}
+
+.questionContainer {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    font-size: 3vh;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: #304ffe;
+}
+
+.questionAns {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.radioInput {
+    display: none;
+}
+
+.radioButton {
+    cursor: pointer;
+}
+
+.buttonLabel {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.radioButton:hover .buttonLabel {
+    background-color: #e0e0e0;
+    border-color: #888;
+}
+
+.radioInput:checked+.buttonLabel {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+
+.navButton {
+    background-color: #3d5afe;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.navButton:hover {
+    background-color: #304ffe;
+}
+
+.fullscreenModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    color: #333;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.closeButton:hover {
+    background-color: #0056b3;
 }
 
 .numberInput {
