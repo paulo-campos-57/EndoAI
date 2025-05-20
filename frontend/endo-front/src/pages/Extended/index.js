@@ -18,9 +18,10 @@ function Extended() {
 
     const [formData, setFormData] = useState({
         userName: "",
-        age: "",
+        Age: "",
         Height: "",
         Weight: "",
+        BMI: "",
         Sex: "",
         HighBP: "",
         HighChol: "",
@@ -56,7 +57,7 @@ function Extended() {
     }, [formData.NoDocbcCost]);
 
     const fieldsByStep = {
-        1: ['userName', 'age'],
+        1: ['userName', 'Age'],
         2: ['Height', 'Weight', 'Sex', 'HighBP', 'HighChol', 'CholCheck'],
         3: ['Smoker', 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies'],
         4: ['HvyAlcoholConsump', 'AnyHealthcare', 'NeedDoc', 'NoDocbcCost', 'GenHlth', 'MentHlth', 'PhysHlth'],
@@ -69,8 +70,35 @@ function Extended() {
 
     const isFormValid = Object.values(formData).every(val => val !== "");
 
-    const handleSubmit = (e) => {
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        const sanitizedValue = value.replace(/\D/g, '').slice(0, 3);
+
+        setFormData((prevData) => {
+            const updatedData = {
+                ...prevData,
+                [name]: sanitizedValue
+            };
+
+            const height = parseFloat(updatedData.Height);
+            const weight = parseFloat(updatedData.Weight);
+
+            if (!isNaN(height) && height > 0 && !isNaN(weight)) {
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                updatedData.BMI = bmi.toFixed(2);
+            } else {
+                updatedData.BMI = "";
+            }
+
+            return updatedData;
+        });
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (!isFormValid) {
             toast.error('Por favor, preencha todos os campos do formulário antes de enviar.', {
                 position: "top-right",
@@ -83,7 +111,80 @@ function Extended() {
             });
             return;
         }
-        navigate("/resultado", { state: { userName: formData.userName } });
+
+        const featuresToSend = [
+            "HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke",
+            "HeartDiseaseorAttack", "PhysActivity", "Fruits", "Veggies",
+            "HvyAlcoholConsump", "AnyHealthcare", "NoDocbcCost", "GenHlth",
+            "MentHlth", "PhysHlth", "DiffWalk", "Sex", "Age", "Education", "Income"
+        ];
+
+        const filteredData = Object.fromEntries(
+            featuresToSend.map(key => [key, formData[key]])
+        );
+
+        const castedData = {
+            ...filteredData,
+            HighBP: parseInt(filteredData.HighBP),
+            HighChol: parseInt(filteredData.HighChol),
+            CholCheck: parseInt(filteredData.CholCheck),
+            BMI: parseFloat(filteredData.BMI),
+            Smoker: parseInt(filteredData.Smoker),
+            Stroke: parseInt(filteredData.Stroke),
+            HeartDiseaseorAttack: parseInt(filteredData.HeartDiseaseorAttack),
+            PhysActivity: parseInt(filteredData.PhysActivity),
+            Fruits: parseInt(filteredData.Fruits),
+            Veggies: parseInt(filteredData.Veggies),
+            HvyAlcoholConsump: parseInt(filteredData.HvyAlcoholConsump),
+            AnyHealthcare: parseInt(filteredData.AnyHealthcare),
+            NoDocbcCost: parseInt(filteredData.NoDocbcCost),
+            GenHlth: parseInt(filteredData.GenHlth),
+            MentHlth: parseFloat(filteredData.MentHlth),
+            PhysHlth: parseFloat(filteredData.PhysHlth),
+            DiffWalk: parseInt(filteredData.DiffWalk),
+            Sex: parseInt(filteredData.Sex),
+            Age: parseInt(filteredData.Age),
+            Education: parseInt(filteredData.Education),
+            Income: parseInt(filteredData.Income),
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/prever_ex", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(castedData)
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao enviar dados para o backend.");
+            }
+
+            const result = await response.json();
+            console.log("Resposta do backend:", result);
+
+            toast.success(`Chance de diabetes: ${result.chance_diabetes}`, {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "colored",
+            });
+
+            navigate("/resultado", {
+                state: {
+                    userName: formData.userName,
+                    chanceDiabetes: result.chance_diabetes
+                }
+            });
+
+        } catch (error) {
+            console.error("Erro na submissão:", error);
+            toast.error("Ocorreu um erro ao prever a chance de diabetes.", {
+                position: "top-right",
+                autoClose: 3000,
+                theme: "colored",
+            });
+        }
     };
 
     const nextStep = () => {
@@ -139,8 +240,8 @@ function Extended() {
                                                 pattern="\d{1,3}"
                                                 inputMode="numeric"
                                                 className={styles.numberInput}
-                                                value={formData.age}
-                                                onChange={e => setFormData(fd => ({ ...fd, age: e.target.value }))}
+                                                value={formData.Age}
+                                                onChange={e => setFormData(fd => ({ ...fd, Age: e.target.value }))}
                                             />
                                         </div>
                                     </div>
@@ -158,14 +259,10 @@ function Extended() {
                                                 type="number"
                                                 name="Height"
                                                 maxLength={3}
-                                                pattern="\d{1,3}"
                                                 inputMode="numeric"
                                                 className={styles.numberInput}
                                                 value={formData.Height}
-                                                onChange={e => setFormData(fd => ({ ...fd, Height: e.target.value }))}
-                                                onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-                                                }}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -177,14 +274,10 @@ function Extended() {
                                                 type="number"
                                                 name="Weight"
                                                 maxLength={3}
-                                                pattern="\d{1,3}"
                                                 inputMode="numeric"
                                                 className={styles.numberInput}
                                                 value={formData.Weight}
-                                                onChange={e => setFormData(fd => ({ ...fd, Weight: e.target.value }))}
-                                                onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-                                                }}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -656,7 +749,7 @@ function Extended() {
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
 
                                 <div className={styles.sideQuestion}>

@@ -20,6 +20,7 @@ knn_model_ex = joblib.load(model_path_ex)
 scaler = joblib.load(scaler_path)
 scaler_ex = joblib.load(scaler_path_ex)
 
+
 @routes_bp.route("/api/salute", methods=["GET"])
 def salute():
     return jsonify({"message": "Integrado com sucesso"})
@@ -57,10 +58,12 @@ def prever_diabetes():
 
     return jsonify(resultado)
 
+
 @routes_bp.route("/prever_ex", methods=["POST"])
 def prever_diabetes_ex():
     dados = request.json
     df_input = pd.DataFrame([dados])
+    print("Dados recebidos no backend:", dados)
 
     features_ex = [
         "HighBP",
@@ -83,7 +86,7 @@ def prever_diabetes_ex():
         "Sex",
         "Age",
         "Education",
-        "Income"
+        "Income",
     ]
 
     try:

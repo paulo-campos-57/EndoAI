@@ -9,25 +9,26 @@ function Result() {
     const navigate = useNavigate();
 
     const userName = location.state?.userName;
+    const chanceDiabetes = location.state?.chanceDiabetes;
 
     React.useEffect(() => {
-        if (!userName) {
+        if (!userName || !chanceDiabetes) {
             navigate("/extendido");
         }
-    }, [userName, navigate]);
+    }, [userName, chanceDiabetes, navigate]);
 
-    if (!userName) return null;
+    if (!userName || !chanceDiabetes) return null;
 
-    let percentage = 78;
+    const percentage = parseFloat(chanceDiabetes.replace("%", ""));
 
-    let message = ""
+    let message = "";
 
     if (percentage >= 80) {
         message = `possui grande chance de ter diabetes, com ${percentage}% de risco.`;
-    } else if (percentage < 80 && percentage >= 55) {
+    } else if (percentage >= 55) {
         message = `possui chance de ter diabetes, com ${percentage}% de risco.`;
-    } else if (percentage < 55 && percentage >= 30) {
-        message = `possui pouca de ter diabetes, com ${percentage}% de risco.`;
+    } else if (percentage >= 30) {
+        message = `possui pouca chance de ter diabetes, com ${percentage}% de risco.`;
     } else {
         message = `possui muito pouca chance de ter diabetes, com ${percentage}% de risco.`;
     }
@@ -51,5 +52,4 @@ function Result() {
         </div>
     );
 }
-
 export default Result;
