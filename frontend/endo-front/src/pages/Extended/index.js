@@ -647,15 +647,15 @@ function Extended() {
                                         <div className={styles.question}>16. Você diria que sua saúde é?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="1"
-                                                    checked={formData.GenHlth === "1"}
+                                                <input type="radio" name="GenHlth" value="5"
+                                                    checked={formData.GenHlth === "5"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>EXCELENTE</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="2"
-                                                    checked={formData.GenHlth === "2"}
+                                                <input type="radio" name="GenHlth" value="4"
+                                                    checked={formData.GenHlth === "4"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>MUITO BOA</span>
@@ -668,15 +668,15 @@ function Extended() {
                                                 <span className={styles.buttonLabel}>BOA</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="4"
-                                                    checked={formData.GenHlth === "4"}
+                                                <input type="radio" name="GenHlth" value="2"
+                                                    checked={formData.GenHlth === "2"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>REGULAR</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="5"
-                                                    checked={formData.GenHlth === "5"}
+                                                <input type="radio" name="GenHlth" value="1"
+                                                    checked={formData.GenHlth === "1"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>RUIM</span>

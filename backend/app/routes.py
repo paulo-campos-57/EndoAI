@@ -29,7 +29,7 @@ def salute():
 @routes_bp.route("/prever", methods=["POST"])
 def prever_diabetes():
     dados = request.json
-    df_input = pd.DataFrame([dados])
+    print("Dados recebidos no backend:", dados)
 
     features = [
         "HighBP",
@@ -45,14 +45,33 @@ def prever_diabetes():
         "Education",
         "Income",
     ]
-    df_input = df_input[features]
+
+    try:
+        df_input = pd.DataFrame(
+            [[dados[feat] for feat in features]], columns=features)
+    except KeyError as e:
+        return jsonify({"erro": f"Campo ausente: {str(e)}"}), 400
+
+    df_input["BMI"] = df_input["BMI"].clip(lower=10, upper=60)
+
+    df_input = df_input.apply(pd.to_numeric, errors='coerce')
+
+    print("DataFrame antes da escala:")
+    print(df_input)
 
     df_input_scaled = scaler.transform(df_input)
+
+    print("DataFrame após escala:")
+    print(df_input_scaled)
+
     probabilidades = knn_model.predict_proba(df_input_scaled)
     probabilidade_diabetes = round(probabilidades[0][2] * 100, 1)
 
     if probabilidade_diabetes > 95:
         probabilidade_diabetes = 95
+
+    if probabilidade_diabetes < 5:
+        probabilidade_diabetes = 5
 
     resultado = {"chance_diabetes": f"{probabilidade_diabetes}%"}
 

@@ -64,7 +64,9 @@ function Simplified() {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        const sanitizedValue = value.replace(/\D/g, '').slice(0, 3);
+        const sanitizedValue = name === "Height" || name === "Weight"
+            ? value.replace(/[^0-9.]/g, '')
+            : value.replace(/\D/g, '').slice(0, 3);
 
         setFormData((prevData) => {
             const updatedData = {
@@ -121,8 +123,8 @@ function Simplified() {
             Fruits: parseInt(filteredData.Fruits),
             PhysActivity: parseInt(filteredData.PhysActivity),
             GenHlth: parseInt(filteredData.GenHlth),
-            MentHlth: parseFloat(filteredData.MentHlth),
-            PhysHlth: parseFloat(filteredData.PhysHlth),
+            MentHlth: parseInt(filteredData.MentHlth),
+            PhysHlth: parseInt(filteredData.PhysHlth),
             Age: parseInt(filteredData.Age),
             Education: parseInt(filteredData.Education),
             Income: parseInt(filteredData.Income),
@@ -183,7 +185,7 @@ function Simplified() {
                                         <div className={styles.questionAns}>
                                             <input
                                                 type="text"
-                                                name="Name"
+                                                name="userName"
                                                 className={styles.numberInput}
                                                 value={formData.userName}
                                                 onChange={e => setFormData(fd => ({ ...fd, userName: e.target.value }))}
@@ -376,15 +378,15 @@ function Simplified() {
                                         <div className={styles.question}>8. Você diria que sua saúde é?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="1"
-                                                    checked={formData.GenHlth === "1"}
+                                                <input type="radio" name="GenHlth" value="5"
+                                                    checked={formData.GenHlth === "5"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>EXCELENTE</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="2"
-                                                    checked={formData.GenHlth === "2"}
+                                                <input type="radio" name="GenHlth" value="4"
+                                                    checked={formData.GenHlth === "4"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>MUITO BOA</span>
@@ -397,15 +399,15 @@ function Simplified() {
                                                 <span className={styles.buttonLabel}>BOA</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="4"
-                                                    checked={formData.GenHlth === "4"}
+                                                <input type="radio" name="GenHlth" value="2"
+                                                    checked={formData.GenHlth === "2"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>REGULAR</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="GenHlth" value="5"
-                                                    checked={formData.GenHlth === "5"}
+                                                <input type="radio" name="GenHlth" value="1"
+                                                    checked={formData.GenHlth === "1"}
                                                     onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>RUIM</span>
