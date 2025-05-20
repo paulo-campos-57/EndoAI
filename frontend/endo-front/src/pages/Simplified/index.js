@@ -51,11 +51,9 @@ function Simplified() {
         setStep(prev => Math.max(prev - 1, 1));
     };
     const fieldsByStep = {
-        1: ['userName', 'age'],
-        2: ['Height', 'Weight', 'Sex', 'HighBP', 'HighChol', 'CholCheck'],
-        3: ['Smoker', 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies'],
-        4: ['HvyAlcoholConsump', 'AnyHealthcare', 'NeedDoc', 'NoDocbcCost', 'GenHlth', 'MentHlth', 'PhysHlth'],
-        5: ['DiffWalk', 'Education', 'Income']
+        1: ['userName', 'Age'],
+        2: ['Height', 'Weight', 'HighBP', 'HighChol', 'Smoker', 'Fruits'],
+        3: ['PhysActivity', 'GenHlth', 'MentHlth', 'PhysHlth', 'Education', 'Income']
     };
 
     const isCurrentStepValid = fieldsByStep[step].every(
@@ -89,8 +87,9 @@ function Simplified() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (!isFormValid) {
             toast.error('Por favor, preencha todos os campos do formulário antes de enviar.', {
                 position: "top-right",
@@ -103,7 +102,69 @@ function Simplified() {
             });
             return;
         }
-        navigate("/resultado", { state: { userName: formData.userName } });
+
+        const featuresToSend = [
+            "HighBP", "HighChol", "BMI", "Smoker",
+            "Fruits", "PhysActivity", "GenHlth", "MentHlth", "PhysHlth",
+            "Age", "Education", "Income"
+        ];
+
+        const filteredData = Object.fromEntries(
+            featuresToSend.map(key => [key, formData[key]])
+        );
+
+        const castedData = {
+            HighBP: parseInt(filteredData.HighBP),
+            HighChol: parseInt(filteredData.HighChol),
+            BMI: parseFloat(filteredData.BMI),
+            Smoker: parseInt(filteredData.Smoker),
+            Fruits: parseInt(filteredData.Fruits),
+            PhysActivity: parseInt(filteredData.PhysActivity),
+            GenHlth: parseInt(filteredData.GenHlth),
+            MentHlth: parseFloat(filteredData.MentHlth),
+            PhysHlth: parseFloat(filteredData.PhysHlth),
+            Age: parseInt(filteredData.Age),
+            Education: parseInt(filteredData.Education),
+            Income: parseInt(filteredData.Income),
+        };
+
+        try {
+            const response = await fetch("http://localhost:5000/prever", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(castedData)
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao enviar dados para o backend.");
+            }
+
+            const result = await response.json();
+            console.log("Resposta do backend:", result);
+
+            toast.success(`Chance de diabetes: ${result.chance_diabetes}`, {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "colored",
+            });
+
+            navigate("/resultado", {
+                state: {
+                    userName: formData.userName,
+                    chanceDiabetes: result.chance_diabetes
+                }
+            });
+
+        } catch (error) {
+            console.error("Erro na submissão:", error);
+            toast.error("Ocorreu um erro ao prever a chance de diabetes.", {
+                position: "top-right",
+                autoClose: 3000,
+                theme: "colored",
+            });
+        }
     };
 
     return (
@@ -113,7 +174,7 @@ function Simplified() {
                 <Header />
                 <div className={styles.content}>
                     <div className={styles.title}>Avaliação Simplificada {formData.userName && `- ${formData.userName}`}</div>
-                    <form className={styles.ansForm}>
+                    <form className={styles.ansForm} onSubmit={handleSubmit}>
                         {step === 1 && (
                             <div className={styles.firstQuestion}>
                                 <div className={styles.firstQuestionContainer}>
