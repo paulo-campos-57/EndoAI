@@ -31,7 +31,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
 - <strong>Iniciando o servidor Back-end:</strong>
   - Navegue até a pasta backend do projeto (EndoAI/backend)
   - Inicie o ambiente virtual:
-      <dt>1
+      <dt>
     
           python -m venv venv
       </dt>
