@@ -15,12 +15,12 @@ function Simplified() {
 
     const [formData, setFormData] = useState({
         userName: "",
-        age: "",
+        Age: "",
         Height: "",
         Weight: "",
+        BMI: "",
         HighBP: "",
         HighChol: "",
-        BMI: "",
         Smoker: "",
         PhysActivity: "",
         Fruits: "",
@@ -62,6 +62,32 @@ function Simplified() {
         key => formData[key] !== ""
     );
     const isFormValid = Object.values(formData).every(val => val !== "");
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+
+        const sanitizedValue = value.replace(/\D/g, '').slice(0, 3);
+
+        setFormData((prevData) => {
+            const updatedData = {
+                ...prevData,
+                [name]: sanitizedValue
+            };
+
+            const height = parseFloat(updatedData.Height);
+            const weight = parseFloat(updatedData.Weight);
+
+            if (!isNaN(height) && height > 0 && !isNaN(weight)) {
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                updatedData.BMI = bmi.toFixed(2);
+            } else {
+                updatedData.BMI = "";
+            }
+
+            return updatedData;
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -113,8 +139,8 @@ function Simplified() {
                                                 pattern="\d{1,3}"
                                                 inputMode="numeric"
                                                 className={styles.numberInput}
-                                                value={formData.age}
-                                                onChange={e => setFormData(fd => ({ ...fd, age: e.target.value }))}
+                                                value={formData.Age}
+                                                onChange={e => setFormData(fd => ({ ...fd, Age: e.target.value }))}
                                             />
                                         </div>
                                     </div>
@@ -132,14 +158,10 @@ function Simplified() {
                                                 type="number"
                                                 name="Height"
                                                 maxLength={3}
-                                                pattern="\d{1,3}"
                                                 inputMode="numeric"
                                                 className={styles.numberInput}
                                                 value={formData.Height}
-                                                onChange={e => setFormData(fd => ({ ...fd, Height: e.target.value }))}
-                                                onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-                                                }}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -151,14 +173,10 @@ function Simplified() {
                                                 type="number"
                                                 name="Weight"
                                                 maxLength={3}
-                                                pattern="\d{1,3}"
                                                 inputMode="numeric"
                                                 className={styles.numberInput}
                                                 value={formData.Weight}
-                                                onChange={e => setFormData(fd => ({ ...fd, Weight: e.target.value }))}
-                                                onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
-                                                }}
+                                                onChange={handleInputChange}
                                             />
                                         </div>
                                     </div>
@@ -186,8 +204,27 @@ function Simplified() {
 
                                 <div className={styles.sideQuestion}>
                                     <div className={styles.questionContainer}>
+                                        <div className={styles.question}>4. Você já foi diagnosticado com colesterol alto?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="HighChol" value="1"
+                                                    checked={formData.HighChol === "1"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, HighChol: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>SIM</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="HighChol" value="0"
+                                                    checked={formData.HighChol === "0"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, HighChol: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>NÃO</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className={styles.questionContainer}>
                                         <div className={styles.question}>
-                                            4. Você é ou já foi fumante?
+                                            5. Você é ou já foi fumante?
                                             <FaQuestionCircle
                                                 className={styles.icon}
                                                 onClick={() => setShowSmokerInfo(!showSmokerInfo)}
@@ -229,7 +266,7 @@ function Simplified() {
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>5. Você costuma consumir uma ou mais frutas por dia?</div>
+                                        <div className={styles.question}>6. Você costuma consumir uma ou mais frutas por dia?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="Fruits" value="1"
@@ -247,9 +284,15 @@ function Simplified() {
                                             </label>
                                         </div>
                                     </div>
-
+                                </div>
+                            </div>
+                        )}
+                        {step === 3 && (
+                            <div className={styles.question}>
+                                <div className={styles.sideQuestion}>
+                                    {/* Bloco 2 de perguntas */}
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>6. Você costuma praticar atividade física?</div>
+                                        <div className={styles.question}>7. Você costuma praticar atividade física?</div>
                                         <div className={styles.questionAns}>
                                             <label className={styles.radioButton}>
                                                 <input type="radio" name="PhysActivity" value="1"
@@ -267,6 +310,146 @@ function Simplified() {
                                             </label>
                                         </div>
                                     </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>8. Você diria que sua saúde é?</div>
+                                        <div className={styles.questionAns}>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="1"
+                                                    checked={formData.GenHlth === "1"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>EXCELENTE</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="2"
+                                                    checked={formData.GenHlth === "2"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>MUITO BOA</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="3"
+                                                    checked={formData.GenHlth === "3"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>BOA</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="4"
+                                                    checked={formData.GenHlth === "4"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>REGULAR</span>
+                                            </label>
+                                            <label className={styles.radioButton}>
+                                                <input type="radio" name="GenHlth" value="5"
+                                                    checked={formData.GenHlth === "5"}
+                                                    onChange={e => setFormData(fd => ({ ...fd, GenHlth: e.target.value }))}
+                                                    className={styles.radioInput} />
+                                                <span className={styles.buttonLabel}>RUIM</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>9. No último mês, em quantos dias sua saúde mental não estava boa?</div>
+                                        <div className={styles.questionAns}>
+                                            <input
+                                                type="number"
+                                                name="MentHlth"
+                                                maxLength={2}
+                                                pattern="\d{1,2}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                                value={formData.MentHlth}
+                                                onChange={e => setFormData(fd => ({ ...fd, MentHlth: e.target.value }))}
+                                                onInput={(e) => {
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className={styles.sideQuestion}>
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>10. No último mês, em quantos dias sua saúde física não estava boa?</div>
+                                        <div className={styles.questionAns}>
+                                            <input
+                                                type="number"
+                                                name="PhysHlth"
+                                                maxLength={2}
+                                                pattern="\d{1,2}"
+                                                inputMode="numeric"
+                                                className={styles.numberInput}
+                                                value={formData.PhysHlth}
+                                                onChange={e => setFormData(fd => ({ ...fd, PhysHlth: e.target.value }))}
+                                                onInput={(e) => {
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>
+                                            11. Qual seu nível de escolaridade?
+                                        </div>
+                                        <div>
+                                            <select
+                                                name="Education"
+                                                defaultValue=""
+                                                className={styles.selectInput}
+                                                value={formData.Education}
+                                                onChange={e => setFormData(fd => ({ ...fd, Education: e.target.value }))}
+                                            >
+                                                <option value="">SELECIONE</option>
+                                                <option value="1">
+                                                    NUNCA FREQUENTEI / JARDIM DE INFÂNCIA
+                                                </option>
+                                                <option value="2">
+                                                    ENSINO FUNDAMENTAL INCOMPLETO / COMPLETO
+                                                </option>
+                                                <option value="3">
+                                                    ENSINO MÉDIO INCOMPLETO
+                                                </option>
+                                                <option value="4">
+                                                    ENSINO MÉDIO COMPLETO
+                                                </option>
+                                                <option value="5">
+                                                    CURSO TÉCNICO / ENSINO SUPERIOR INCOMPLETO
+                                                </option>
+                                                <option value="6">
+                                                    ENSINO SUPERIOR COMPLETO
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.questionContainer}>
+                                        <div className={styles.question}>
+                                            12. Qual sua renda média anual?
+                                        </div>
+                                        <div>
+                                            <select
+                                                name="Income"
+                                                defaultValue=""
+                                                className={styles.selectInput}
+                                                value={formData.Income}
+                                                onChange={e => setFormData(fd => ({ ...fd, Income: e.target.value }))}
+                                            >
+                                                <option value="">SELECIONE</option>
+                                                <option value="1">MENOS DE 10.000</option>
+                                                <option value="2">MENOS DE 15.000</option>
+                                                <option value="3">MENOS DE 20.000</option>
+                                                <option value="4">MENOS DE 25.000</option>
+                                                <option value="5">MENOS DE 35.000</option>
+                                                <option value="6">MENOS DE 50.000</option>
+                                                <option value="7">MENOS DE 75.000</option>
+                                                <option value="8">MAIS DE 75.000</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -276,16 +459,22 @@ function Simplified() {
                                     Voltar
                                 </button>
                             )}
-                            {step < 5 && (
+                            {step < 3 && (
                                 <button type="button" className={styles.navButton} onClick={nextStep}>
                                     Avançar
                                 </button>
                             )}
-                            {step === 5 && (
+                            {step === 3 && (
                                 <button type="submit" className={styles.navButton}>
                                     Enviar
                                 </button>
                             )}
+                        </div>
+                        <div className={styles.progressBar}>
+                            <div
+                                className={styles.progress}
+                                style={{ width: `${(step / 5) * 100}%` }}
+                            ></div>
                         </div>
                     </form>
                 </div>
