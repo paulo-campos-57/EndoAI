@@ -26,7 +26,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
     - Insira esse arquivo na pasta EndoAI/backend: <a href="https://drive.google.com/drive/folders/1-Kt1PW9iQQM1nk8Suk2EFoSAFXZb6K4_?usp=drive_link" target="_blank">joblib(back-end)</a>
     - [Modelo simplificado] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/14cqtZLHXhVZD56xHe1-uOF40e4AiiYZE?usp=drive_link" target="_blank">joblib Simp</a>
     - [Modelo simplificado] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1XaaaQXEXGgDgDGBM1_JHOj5-3ce5wFuU?usp=drive_link" target="_blank">Modelo KNN Simp</a>
-    - [Modelo Extendido] -> Insira esse aruivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1ex2pqgW9Nxgju46Nj_yoea39fflTJ5tm?usp=drive_link" target="_blank">joblib Ex</a>
+    - [Modelo Extendido] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1ex2pqgW9Nxgju46Nj_yoea39fflTJ5tm?usp=drive_link" target="_blank">joblib Ex</a>
     - [Modelo Extendido] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1807_LGcBnjhjEGuQ4hsLlcYXex2zANJX?usp=drive_link" target="_blank">Modelo KNN Ex</a>
 - <strong>Iniciando o servidor Back-end:</strong>
   - Navegue até a pasta backend do projeto (EndoAI/backend)
