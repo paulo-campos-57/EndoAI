@@ -119,5 +119,8 @@ def prever_diabetes_ex():
 
     if prob_diabetes > 95:
         prob_diabetes = 95
+        
+    if prob_diabetes < 5:
+        prob_diabetes = 5
 
     return jsonify({"chance_diabetes": f"{prob_diabetes}%"})

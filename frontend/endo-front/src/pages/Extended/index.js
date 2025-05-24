@@ -56,6 +56,12 @@ function Extended() {
         }
     }, [formData.NoDocbcCost]);
 
+    useEffect(() => {
+        if (showDoctorFollowup) {
+            setFormData(fd => ({ ...fd, NoDocbcCost: "" }));
+        }
+    }, [showDoctorFollowup]);
+
     const fieldsByStep = {
         1: ['userName', 'Age'],
         2: ['Height', 'Weight', 'Sex', 'HighBP', 'HighChol', 'CholCheck'],
@@ -230,19 +236,60 @@ function Extended() {
                                             />
                                         </div>
                                     </div>
+                                    
                                     <div className={styles.capsule}>
-                                        <div className={styles.question}>Informe sua idade</div>
-                                        <div className={styles.questionAns}>
-                                            <input
-                                                type="number"
+                                        <div className={styles.question}>
+                                            Informe sua idade
+                                        </div>
+                                        <div>
+                                            <select
                                                 name="Age"
-                                                maxLength={3}
-                                                pattern="\d{1,3}"
-                                                inputMode="numeric"
-                                                className={styles.numberInput}
+                                                defaultValue=""
+                                                className={styles.selectInput}
                                                 value={formData.Age}
                                                 onChange={e => setFormData(fd => ({ ...fd, Age: e.target.value }))}
-                                            />
+                                            >
+                                                <option value="">SELECIONE</option>
+                                                <option value="1">
+                                                    18 - 24
+                                                </option>
+                                                <option value="2">
+                                                    25 - 29
+                                                </option>
+                                                <option value="3">
+                                                    30 - 34
+                                                </option>
+                                                <option value="4">
+                                                    35 - 39
+                                                </option>
+                                                <option value="5">
+                                                    40 - 44
+                                                </option>
+                                                <option value="6">
+                                                    45 - 49
+                                                </option>
+                                                <option value="7">
+                                                    50 - 54
+                                                </option>
+                                                <option value="8">
+                                                    55 - 59
+                                                </option>
+                                                <option value="9">
+                                                    60 - 64
+                                                </option>
+                                                <option value="10">
+                                                    65 - 69
+                                                </option>
+                                                <option value="11">
+                                                    70 - 74
+                                                </option>
+                                                <option value="12">
+                                                    75 - 79
+                                                </option>
+                                                <option value="13">
+                                                    80+
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
