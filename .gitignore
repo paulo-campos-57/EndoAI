@@ -36,8 +36,11 @@ instance/
 # Arquivos do pip
 pip-log.txt
 
-# Arquivos do Jupyter (caso use notebooks)
+# Arquivos do Jupyter
 .ipynb_checkpoints/
+
+# Cache do pytest
+.pytest_cache/
 
 # MacOS
 .DS_Store
