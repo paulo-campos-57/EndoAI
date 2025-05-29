@@ -73,10 +73,11 @@ function Simplified() {
                 [name]: sanitizedValue
             };
 
-            const height = parseFloat(updatedData.Height);
-            const weight = parseFloat(updatedData.Weight);
+            // Calculate BMI if both height and weight are present
+            const height = parseFloat(name === "Height" ? sanitizedValue : updatedData.Height);
+            const weight = parseFloat(name === "Weight" ? sanitizedValue : updatedData.Weight);
 
-            if (!isNaN(height) && height > 0 && !isNaN(weight)) {
+            if (!isNaN(height) && height > 0 && !isNaN(weight) && weight > 0) {
                 const heightInMeters = height / 100;
                 const bmi = weight / (heightInMeters * heightInMeters);
                 updatedData.BMI = bmi.toFixed(2);
@@ -180,70 +181,47 @@ function Simplified() {
                             <div className={styles.firstQuestion}>
                                 <div className={styles.firstQuestionContainer}>
                                     <div className={styles.capsule}>
-                                        <div className={styles.question}>Informe o seu nome</div>
+                                        <label htmlFor="userName" className={styles.question}>Informe o seu nome</label>
                                         <div className={styles.questionAns}>
                                             <input
+                                                id="userName"
                                                 type="text"
                                                 name="userName"
                                                 className={styles.numberInput}
                                                 value={formData.userName}
                                                 onChange={e => setFormData(fd => ({ ...fd, userName: e.target.value }))}
+                                                aria-label="Informe o seu nome"
                                             />
                                         </div>
                                     </div>
 
                                     <div className={styles.capsule}>
-                                        <div className={styles.question}>
+                                        <label htmlFor="age" className={styles.question}>
                                             Informe sua idade
-                                        </div>
+                                        </label>
                                         <div>
                                             <select
+                                                id="age"
                                                 name="Age"
-                                                defaultValue=""
                                                 className={styles.selectInput}
                                                 value={formData.Age}
                                                 onChange={e => setFormData(fd => ({ ...fd, Age: e.target.value }))}
+                                                aria-label="Informe sua idade"
                                             >
                                                 <option value="">SELECIONE</option>
-                                                <option value="1">
-                                                    18 - 24
-                                                </option>
-                                                <option value="2">
-                                                    25 - 29
-                                                </option>
-                                                <option value="3">
-                                                    30 - 34
-                                                </option>
-                                                <option value="4">
-                                                    35 - 39
-                                                </option>
-                                                <option value="5">
-                                                    40 - 44
-                                                </option>
-                                                <option value="6">
-                                                    45 - 49
-                                                </option>
-                                                <option value="7">
-                                                    50 - 54
-                                                </option>
-                                                <option value="8">
-                                                    55 - 59
-                                                </option>
-                                                <option value="9">
-                                                    60 - 64
-                                                </option>
-                                                <option value="10">
-                                                    65 - 69
-                                                </option>
-                                                <option value="11">
-                                                    70 - 74
-                                                </option>
-                                                <option value="12">
-                                                    75 - 79
-                                                </option>
-                                                <option value="13">
-                                                    80+
-                                                </option>
+                                                <option value="1">18 - 24</option>
+                                                <option value="2">25 - 29</option>
+                                                <option value="3">30 - 34</option>
+                                                <option value="4">35 - 39</option>
+                                                <option value="5">40 - 44</option>
+                                                <option value="6">45 - 49</option>
+                                                <option value="7">50 - 54</option>
+                                                <option value="8">55 - 59</option>
+                                                <option value="9">60 - 64</option>
+                                                <option value="10">65 - 69</option>
+                                                <option value="11">70 - 74</option>
+                                                <option value="12">75 - 79</option>
+                                                <option value="13">80+</option>
                                             </select>
                                         </div>
                                     </div>
@@ -255,9 +233,10 @@ function Simplified() {
                                 <div className={styles.sideQuestion}>
                                     {/* Bloco 1 de perguntas */}
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>1. Qual a sua altura? (Escreva em centímetros. Ex: 181)</div>
+                                        <label htmlFor="height" className={styles.question}>1. Qual a sua altura? (Escreva em centímetros. Ex: 181)</label>
                                         <div className={styles.questionAns}>
                                             <input
+                                                id="height"
                                                 type="number"
                                                 name="Height"
                                                 maxLength={3}
@@ -265,14 +244,16 @@ function Simplified() {
                                                 className={styles.numberInput}
                                                 value={formData.Height}
                                                 onChange={handleInputChange}
+                                                aria-label="Qual a sua altura? (Escreva em centímetros. Ex: 181)"
                                             />
                                         </div>
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)</div>
+                                        <label htmlFor="weight" className={styles.question}>2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)</label>
                                         <div className={styles.questionAns}>
                                             <input
+                                                id="weight"
                                                 type="number"
                                                 name="Weight"
                                                 maxLength={3}
@@ -280,9 +261,17 @@ function Simplified() {
                                                 className={styles.numberInput}
                                                 value={formData.Weight}
                                                 onChange={handleInputChange}
+                                                aria-label="Qual o seu peso? (Escreva em kilogramas. Ex: 80)"
                                             />
                                         </div>
                                     </div>
+
+                                    {/* Add hidden BMI input for testing */}
+                                    <input
+                                        type="hidden"
+                                        data-testid="bmi-value"
+                                        value={formData.BMI}
+                                    />
 
                                     <div className={styles.questionContainer}>
                                         <div className={styles.question}>3. Você já foi diagnosticado com pressão alta?</div>
@@ -456,9 +445,10 @@ function Simplified() {
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>9. No último mês, em quantos dias sua saúde mental não estava boa?</div>
+                                        <label htmlFor="mentHlth" className={styles.question}>9. No último mês, em quantos dias sua saúde mental não estava boa?</label>
                                         <div className={styles.questionAns}>
                                             <input
+                                                id="mentHlth"
                                                 type="number"
                                                 name="MentHlth"
                                                 maxLength={2}
@@ -470,6 +460,7 @@ function Simplified() {
                                                 onInput={(e) => {
                                                     e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
                                                 }}
+                                                aria-label="9. No último mês, em quantos dias sua saúde mental não estava boa?"
                                             />
                                         </div>
                                     </div>
@@ -480,6 +471,7 @@ function Simplified() {
                                         <div className={styles.question}>10. No último mês, em quantos dias sua saúde física não estava boa?</div>
                                         <div className={styles.questionAns}>
                                             <input
+                                                id="physHlth"
                                                 type="number"
                                                 name="PhysHlth"
                                                 maxLength={2}
@@ -491,20 +483,22 @@ function Simplified() {
                                                 onInput={(e) => {
                                                     e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
                                                 }}
+                                                aria-label="10. No último mês, em quantos dias sua saúde física não estava boa?"
                                             />
                                         </div>
                                     </div>
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>
+                                        <label htmlFor="education" className={styles.question}>
                                             11. Qual seu nível de escolaridade?
-                                        </div>
+                                        </label>
                                         <div>
                                             <select
+                                                id="education"
                                                 name="Education"
-                                                defaultValue=""
                                                 className={styles.selectInput}
                                                 value={formData.Education}
                                                 onChange={e => setFormData(fd => ({ ...fd, Education: e.target.value }))}
+                                                aria-label="11. Qual seu nível de escolaridade?"
                                             >
                                                 <option value="">SELECIONE</option>
                                                 <option value="1">
@@ -530,16 +524,17 @@ function Simplified() {
                                     </div>
 
                                     <div className={styles.questionContainer}>
-                                        <div className={styles.question}>
+                                        <label htmlFor="income" className={styles.question}>
                                             12. Qual sua renda média anual?
-                                        </div>
+                                        </label>
                                         <div>
                                             <select
+                                                id="income"
                                                 name="Income"
-                                                defaultValue=""
                                                 className={styles.selectInput}
                                                 value={formData.Income}
                                                 onChange={e => setFormData(fd => ({ ...fd, Income: e.target.value }))}
+                                                aria-label="12. Qual sua renda média anual?"
                                             >
                                                 <option value="">SELECIONE</option>
                                                 <option value="1">MENOS DE 10.000</option>

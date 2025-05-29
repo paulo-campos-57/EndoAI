@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Simplified from '.';
 import { ToastContainer } from 'react-toastify';
 import fetchMock from 'jest-fetch-mock';
-import { MemoryRouter } from 'react-router-dom'; // Adicione esta importação
+import { MemoryRouter } from 'react-router-dom';
 
 fetchMock.enableMocks();
 
@@ -55,37 +55,36 @@ describe('Simplified Page', () => {
         await user.selectOptions(screen.getByLabelText('Informe sua idade'), '1');
 
         // Passo 2
-        await user.click(screen.getByText('Avançar'));
+        await user.click(screen.getByRole('button', { name: /avançar/i }));
 
-        await user.type(screen.getByLabelText('1. Qual a sua altura? (Escreva em centímetros. Ex: 181)'), '180');
-        await user.type(screen.getByLabelText('2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)'), '80');
+        const heightInput = screen.getByLabelText('1. Qual a sua altura? (Escreva em centímetros. Ex: 181)');
+        const weightInput = screen.getByLabelText('2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)');
 
-        const highBpNo = screen.getByLabelText('NÃO', { selector: 'input[name="HighBP"]' });
-        await user.click(highBpNo);
+        await user.type(heightInput, '180');
+        await user.type(weightInput, '80');
+
+        await user.click(screen.getByLabelText('NÃO', { selector: 'input[name="HighBP"]' }));
         await user.click(screen.getByLabelText('NÃO', { selector: 'input[name="HighChol"]' }));
         await user.click(screen.getByLabelText('NÃO', { selector: 'input[name="Smoker"]' }));
         await user.click(screen.getByLabelText('SIM', { selector: 'input[name="Fruits"]' }));
 
         // Passo 3
-        await user.click(screen.getByText('Avançar'));
+        await user.click(screen.getByRole('button', { name: /avançar/i }));
 
         await user.click(screen.getByLabelText('SIM', { selector: 'input[name="PhysActivity"]' }));
         await user.click(screen.getByLabelText('EXCELENTE', { selector: 'input[name="GenHlth"]' }));
 
         const mentHlthInput = screen.getByLabelText('9. No último mês, em quantos dias sua saúde mental não estava boa?');
-        await user.type(mentHlthInput, '1');
-
         const physHlthInput = screen.getByLabelText('10. No último mês, em quantos dias sua saúde física não estava boa?');
+
+        await user.type(mentHlthInput, '1');
         await user.type(physHlthInput, '1');
 
-        const educationSelect = screen.getByLabelText('11. Qual seu nível de escolaridade?');
-        await user.selectOptions(educationSelect, '6'); // Corrigido para valor válido (1-6)
-
-        const incomeSelect = screen.getByLabelText('12. Qual sua renda média anual?');
-        await user.selectOptions(incomeSelect, '8');
+        await user.selectOptions(screen.getByLabelText('11. Qual seu nível de escolaridade?'), '6');
+        await user.selectOptions(screen.getByLabelText('12. Qual sua renda média anual?'), '8');
 
         // Submissão
-        await user.click(screen.getByText('Enviar'));
+        await user.click(screen.getByRole('button', { name: /enviar/i }));
 
         await waitFor(() => {
             expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -102,7 +101,7 @@ describe('Simplified Page', () => {
                 MentHlth: 1,
                 PhysHlth: 1,
                 Age: 1,
-                Education: 6, // Corrigido para valor válido
+                Education: 6,
                 Income: 8
             };
 
@@ -121,7 +120,7 @@ describe('Simplified Page', () => {
         );
 
         const user = userEvent.setup();
-        await user.click(screen.getByText('Avançar'));
+        await user.click(screen.getByRole('button', { name: /avançar/i }));
 
         await waitFor(() => {
             expect(screen.getByText('Por favor, preencha todos os campos do formulário antes de enviar.')).toBeInTheDocument();
@@ -130,15 +129,26 @@ describe('Simplified Page', () => {
 
     test('calculates BMI correctly', async () => {
         renderWithRouter(<Simplified />);
+        
+        // Advance to step 2 where BMI inputs are
+        const user = userEvent.setup();
+        
+        // Fill required fields in step 1
+        await user.type(screen.getByLabelText('Informe o seu nome'), 'Test User');
+        await user.selectOptions(screen.getByLabelText('Informe sua idade'), '1');
+        await user.click(screen.getByRole('button', { name: /avançar/i }));
 
+        // Now we can test BMI calculation
         const heightInput = screen.getByLabelText('1. Qual a sua altura? (Escreva em centímetros. Ex: 181)');
         const weightInput = screen.getByLabelText('2. Qual o seu peso? (Escreva em kilogramas. Ex: 80)');
 
-        fireEvent.change(heightInput, { target: { value: '180' } });
-        fireEvent.change(weightInput, { target: { value: '80' } });
+        await user.type(heightInput, '180');
+        await user.type(weightInput, '80');
 
+        // Wait for BMI calculation
         await waitFor(() => {
-            expect(screen.getByDisplayValue('24.69')).toBeInTheDocument();
+            const bmiInput = screen.getByTestId('bmi-value');
+            expect(bmiInput.value).toBe('24.69');
         });
     });
 });
