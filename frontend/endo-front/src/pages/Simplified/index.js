@@ -73,7 +73,6 @@ function Simplified() {
                 [name]: sanitizedValue
             };
 
-            // Calculate BMI if both height and weight are present
             const height = parseFloat(name === "Height" ? sanitizedValue : updatedData.Height);
             const weight = parseFloat(name === "Weight" ? sanitizedValue : updatedData.Weight);
 
