@@ -22,12 +22,15 @@
 .title {
     font-size: 7vh;
     font-weight: 900;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .text {
     width: 68%;
     font-size: 3vh;
     text-align: center;
+    padding: 0 20px;
 }
 
 .links {
@@ -59,4 +62,50 @@
 
 .links:hover::after {
     transform: scaleX(1);
+}
+
+@media screen and (max-width: 992px) {
+    .title {
+        font-size: 6vh;
+    }
+
+    .text {
+        width: 80%;
+        font-size: 2.8vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 5vh;
+    }
+
+    .text {
+        width: 85%;
+        font-size: 2.5vh;
+    }
+
+    .links {
+        font-size: 1.8vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding-top: 3vh;
+        gap: 4vh;
+    }
+
+    .title {
+        font-size: 4vh;
+    }
+
+    .text {
+        width: 90%;
+        font-size: 2.2vh;
+    }
+
+    .links {
+        font-size: 1.6vh;
+    }
 }

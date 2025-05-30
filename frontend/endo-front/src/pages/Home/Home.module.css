@@ -92,6 +92,58 @@
     box-shadow: 0px 10px 12px 0px rgba(0, 0, 0, 0.30);
 }
 
+@media screen and (max-width: 1200px) {
+    .salute {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .salute {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .salute {
+        width: 60%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .typewriter {
+        font-size: 1.8rem;
+    }
+
+    .selectionButton {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        margin-top: 5vh;
+    }
+
+    .salute {
+        width: 85%;
+        padding: 25px 15px;
+    }
+
+    .typewriter {
+        font-size: 1.5rem;
+    }
+
+    .selectionButton {
+        font-size: 16px;
+        padding: 12px 15px 10px;
+    }
+
+    .buttons {
+        width: 100%;
+    }
+}
+
 .popupOverlay {
     position: fixed;
     top: 0;
@@ -110,8 +162,10 @@
     padding: 2rem;
     border-radius: 12px;
     max-width: 400px;
+    width: 90%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     text-align: center;
+    margin: 0 15px;
 }
 
 .popupButtons {

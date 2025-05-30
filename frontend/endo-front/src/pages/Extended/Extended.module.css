@@ -43,6 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .firstQuestionContainer {
@@ -52,6 +53,8 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .capsule {
@@ -84,6 +87,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 0.8rem;
+    text-align: center;
 }
 
 .icon:hover {
@@ -95,6 +99,8 @@
     display: flex;
     gap: 1.5rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .radioInput {
@@ -254,4 +260,112 @@
     border-color: #888;
     background-color: #e0e0e0;
     outline: none;
+}
+
+@media screen and (max-width: 992px) {
+    .title {
+        font-size: 6vh;
+    }
+
+    .ansForm {
+        width: 95%;
+        padding: 2vh;
+    }
+
+    .firstQuestion {
+        font-size: 2.5vh;
+    }
+
+    .question {
+        font-size: 2.5vh;
+    }
+
+    .buttonLabel {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 5vh;
+    }
+
+    .ansForm {
+        border-radius: 30px;
+    }
+
+    .firstQuestionContainer {
+        width: 90%;
+    }
+
+    .question {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .questionAns {
+        gap: 1rem;
+    }
+
+    .buttonLabel {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .numberInput {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .selectInput {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        padding-top: 3vh;
+    }
+
+    .title {
+        font-size: 4vh;
+    }
+
+    .ansForm {
+        width: 100%;
+        border-radius: 20px;
+        padding: 2vh 1.5vh;
+    }
+
+    .firstQuestion {
+        font-size: 2.2vh;
+    }
+
+    .firstQuestionContainer {
+        width: 100%;
+    }
+
+    .question {
+        font-size: 2.2vh;
+    }
+
+    .questionAns {
+        gap: 0.8rem;
+    }
+
+    .buttonLabel {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .navigationButtons {
+        gap: 10px;
+    }
+
+    .navButton {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
 }

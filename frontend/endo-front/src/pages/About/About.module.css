@@ -28,19 +28,25 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
 }
 
 .block {
     background-color: #176565;
     width: 20%;
-    height: 45vh;
+    min-width: 250px;
+    height: auto;
+    min-height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 50px;
-    padding: 10px 15px;
+    padding: 25px;
+    margin-bottom: 20px;
 }
 
 .typewriterBase {
@@ -79,6 +85,7 @@
 .fontText {
     font-size: 2.25vh;
     text-align: justify;
+    margin-top: 20px;
 }
 
 @keyframes typing1 {
@@ -164,6 +171,7 @@
 
 .teamCarousel {
     width: 100%;
+    padding: 0 10px;
 }
 
 .carouselItem {
@@ -209,10 +217,90 @@
     font-size: 2.25vh;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+    .block {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .title {
+        font-size: 8vh;
+    }
+
+    .block {
+        width: 45%;
+        padding: 20px;
+    }
+
+    .fontText {
+        font-size: 2vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-top: 5vh;
+    }
+
+    .title {
+        font-size: 6vh;
+    }
+
+    .blocks {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .block {
+        width: 80%;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .fontText {
+        font-size: 1.8vh;
+    }
+
+    .typewriterBase {
+        font-size: 3vh;
+    }
+
+    .singleMemberContainer {
+        padding: 15px;
+    }
+
     .singleMemberImage {
-        width: 120px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 5vh;
+    }
+
+    .block {
+        width: 90%;
+        padding: 25px 15px;
+        border-radius: 30px;
+    }
+
+    .fontText {
+        font-size: 1.6vh;
+    }
+
+    .typewriterBase {
+        font-size: 2.5vh;
+    }
+
+    .memberName {
+        font-size: 2vh;
+    }
+
+    .memberInfo p {
+        font-size: 1.8vh;
     }
 }
 

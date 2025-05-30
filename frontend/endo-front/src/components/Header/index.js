@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import styles from './Header.module.css';
 
 function Header() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <>
             <div className={styles.head}>
@@ -13,10 +19,15 @@ function Header() {
                             EndoAI
                         </h2>
                     </div>
-                    <div className={styles.rightSide}>
-                        <Link to='/' className={styles.links}>Início</Link>
-                        <Link to='/sobre' className={styles.links}>Sobre</Link>
-                        <Link to='/extendido' className={styles.links}>EndoAI</Link>
+                    <div className={styles.burgerMenu} onClick={toggleMenu}>
+                        <div className={`${styles.burgerBar} ${isMenuOpen ? styles.open : ''}`}></div>
+                        <div className={`${styles.burgerBar} ${isMenuOpen ? styles.open : ''}`}></div>
+                        <div className={`${styles.burgerBar} ${isMenuOpen ? styles.open : ''}`}></div>
+                    </div>
+                    <div className={`${styles.rightSide} ${isMenuOpen ? styles.showMenu : ''}`}>
+                        <Link to='/' className={styles.links} onClick={toggleMenu}>Início</Link>
+                        <Link to='/sobre' className={styles.links} onClick={toggleMenu}>Sobre</Link>
+                        <Link to='/extendido' className={styles.links} onClick={toggleMenu}>EndoAI</Link>
                     </div>
                 </div>
             </div>
