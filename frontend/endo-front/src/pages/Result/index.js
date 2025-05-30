@@ -34,15 +34,15 @@ function Result() {
         message = `possui muito pouca chance de ter diabetes, com ${percentage}% de risco.`;
     }
 
-    const getFeatureLabel = (feature) => {
+    const getFeatureLabel = (index) => {
         const labels = {
-            HighBP: "Pressão Alta",
-            HighChol: "Colesterol Alto",
-            BMI: "IMC",
-            Smoker: "Fumante",
-            PhysActivity: "Atividade Física"
+            0: "Pressão Alta",
+            1: "Colesterol Alto",
+            2: "IMC Elevado",
+            3: "Fumante",
+            4: "Atividade Física"
         };
-        return labels[feature] || feature;
+        return labels[index] || `Fator ${index + 1}`;
     };
 
     return (
@@ -56,16 +56,32 @@ function Result() {
                         <p className={styles.result}>
                             De acordo com nossa análise, você {message}
                         </p>
-                        
+
                         {featuresImportance && (
                             <div className={styles.featuresSection}>
                                 <h2>Fatores mais relevantes para o resultado:</h2>
                                 <div className={styles.featuresList}>
-                                    {featuresImportance.map((feature, index) => (
-                                        <div key={index} className={styles.featureItem}>
-                                            <span className={styles.featureLabel}>{getFeatureLabel(feature)}</span>
+                                    {featuresImportance.map((value, index) => (
+                                        <div
+                                            key={index}
+                                            className={styles.featureItem}
+                                            style={{
+                                                backgroundColor: value === 0 ? "#d4edda" : "#f8d7da",
+                                                color: value === 0 ? "#155724" : "#721c24",
+                                            }}
+                                        >
+                                            <span className={styles.featureLabel}>
+                                                {getFeatureLabel(index)}
+                                            </span>
+                                            <div>
+                                                {value === 0 ? "Abaixo da média" : "Acima da média"}
+                                            </div>
                                         </div>
                                     ))}
+                                </div>
+                                <div className={styles.legend}>
+                                    <p><span style={{ color: "#155724", fontWeight: "bold" }}>Verde:</span> Abaixo da média</p>
+                                    <p><span style={{ color: "#721c24", fontWeight: "bold" }}>Vermelho:</span> Acima da média</p>
                                 </div>
                             </div>
                         )}

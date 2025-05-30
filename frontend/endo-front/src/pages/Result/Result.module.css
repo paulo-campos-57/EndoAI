@@ -52,7 +52,7 @@
 .featuresList {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .featureItem {
@@ -110,6 +110,16 @@
     background-color: #0056b3;
     transform: translateY(-2px);
 }
+
+.legend {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.legend p {
+    margin: 0.2rem 0;
+}
+
 
 @media (max-width: 600px) {
     .content {

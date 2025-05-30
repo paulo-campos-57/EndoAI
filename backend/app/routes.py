@@ -107,7 +107,7 @@ def prever_diabetes_ex():
         "NoDocbcCost",
         "GenHlth",
         "MentHlth",
-        "PhysHlth",
+        "PhysHlth",  
         "DiffWalk",
         "Sex",
         "Age",
@@ -118,14 +118,15 @@ def prever_diabetes_ex():
     try:
         df_input = df_input[features_ex]
         # Get the values from the Series objects
-        feat_imp[0] = df_input["HighBP"].iloc[0]
-        feat_imp[1] = df_input["HighChol"].iloc[0]
-        feat_imp[2] = df_input["BMI"].iloc[0]
-        feat_imp[3] = df_input["Smoker"].iloc[0]
-        feat_imp[4] = df_input["PhysActivity"].iloc[0]
+        feat_imp[0] = int(df_input["HighBP"].iloc[0])
+        feat_imp[1] = int(df_input["HighChol"].iloc[0])
+        feat_imp[2] = int(df_input["BMI"].iloc[0] >= 30.00)
+        feat_imp[3] = int(df_input["Smoker"].iloc[0])
+        feat_imp[4] = int(df_input["PhysActivity"].iloc[0])
     except KeyError as e:
         return jsonify({"erro": f"Feature faltando: {e}"}), 400
 
+    print("222222222222222222222222222222222", feat_imp)
     df_input_scaled = scaler_ex.transform(df_input)
     probabilidades = knn_model_ex.predict_proba(df_input_scaled)
     prob_diabetes = round(probabilidades[0][2] * 100, 1)
