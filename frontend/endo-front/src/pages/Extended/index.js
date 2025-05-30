@@ -179,7 +179,8 @@ function Extended() {
             navigate("/resultado", {
                 state: {
                     userName: formData.userName,
-                    chanceDiabetes: result.chance_diabetes
+                    chanceDiabetes: result.chance_diabetes,
+                    featuresImportance: result.feat_imp
                 }
             });
 

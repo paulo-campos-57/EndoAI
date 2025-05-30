@@ -47,14 +47,13 @@ def prever_diabetes():
     ]
 
     try:
-        df_input = pd.DataFrame(
-            [[dados[feat] for feat in features]], columns=features)
+        df_input = pd.DataFrame([[dados[feat] for feat in features]], columns=features)
     except KeyError as e:
         return jsonify({"erro": f"Campo ausente: {str(e)}"}), 400
 
     df_input["BMI"] = df_input["BMI"].clip(lower=10, upper=60)
 
-    df_input = df_input.apply(pd.to_numeric, errors='coerce')
+    df_input = df_input.apply(pd.to_numeric, errors="coerce")
 
     print("DataFrame antes da escala:")
     print(df_input)
@@ -84,6 +83,14 @@ def prever_diabetes_ex():
     df_input = pd.DataFrame([dados])
     print("Dados recebidos no backend:", dados)
 
+    feat_imp = [
+        "HighBP",
+        "HighChol",
+        "BMI",
+        "Smoker",
+        "PhysActivity",
+    ]
+
     features_ex = [
         "HighBP",
         "HighChol",
@@ -110,6 +117,12 @@ def prever_diabetes_ex():
 
     try:
         df_input = df_input[features_ex]
+        # Get the values from the Series objects
+        feat_imp[0] = df_input["HighBP"].iloc[0]
+        feat_imp[1] = df_input["HighChol"].iloc[0]
+        feat_imp[2] = df_input["BMI"].iloc[0]
+        feat_imp[3] = df_input["Smoker"].iloc[0]
+        feat_imp[4] = df_input["PhysActivity"].iloc[0]
     except KeyError as e:
         return jsonify({"erro": f"Feature faltando: {e}"}), 400
 
@@ -119,8 +132,8 @@ def prever_diabetes_ex():
 
     if prob_diabetes > 95:
         prob_diabetes = 95
-        
+
     if prob_diabetes < 5:
         prob_diabetes = 5
 
-    return jsonify({"chance_diabetes": f"{prob_diabetes}%"})
+    return jsonify({"chance_diabetes": f"{prob_diabetes}%", "feat_imp": feat_imp})

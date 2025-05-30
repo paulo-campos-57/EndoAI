@@ -10,6 +10,7 @@ function Result() {
 
     const userName = location.state?.userName;
     const chanceDiabetes = location.state?.chanceDiabetes;
+    const featuresImportance = location.state?.featuresImportance;
 
     React.useEffect(() => {
         if (!userName || !chanceDiabetes) {
@@ -33,23 +34,63 @@ function Result() {
         message = `possui muito pouca chance de ter diabetes, com ${percentage}% de risco.`;
     }
 
+    const getFeatureLabel = (feature) => {
+        const labels = {
+            HighBP: "Pressão Alta",
+            HighChol: "Colesterol Alto",
+            BMI: "IMC",
+            Smoker: "Fumante",
+            PhysActivity: "Atividade Física"
+        };
+        return labels[feature] || feature;
+    };
+
     return (
-        <div className={styles.container}>
-            <Header />
-            <div className={styles.content}>
-                <div className={styles.title}>Obrigado por participar, {userName}!</div>
-                <div className={styles.text}>
-                    De acordo com as análises da EndoAI você {message}
-                    Lembramos que a EndoAI é uma ferramenta de apoio e <strong>não substitui o diagnóstico de um profissional de saúde qualificado.</strong>
-                    Recomendamos fortemente que você procure um médico para uma avaliação clínica detalhada e, se necessário, a realização de exames específicos.
-                    Agradecemos por utilizar a EndoAI, esperamos que esta análise ajude você a tomar decisões mais conscientes sobre sua saúde.
+        <>
+            <div className={styles.container}>
+                <Header />
+                <div className={styles.content}>
+                    <h1>Resultado da Análise</h1>
+                    <div className={styles.resultCard}>
+                        <p className={styles.greeting}>Olá, {userName}!</p>
+                        <p className={styles.result}>
+                            De acordo com nossa análise, você {message}
+                        </p>
+                        
+                        {featuresImportance && (
+                            <div className={styles.featuresSection}>
+                                <h2>Fatores mais relevantes para o resultado:</h2>
+                                <div className={styles.featuresList}>
+                                    {featuresImportance.map((feature, index) => (
+                                        <div key={index} className={styles.featureItem}>
+                                            <span className={styles.featureLabel}>{getFeatureLabel(feature)}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        <div className={styles.disclaimer}>
+                            <p>
+                                <strong>Importante:</strong> Este resultado é apenas uma estimativa baseada nos dados fornecidos.
+                                Não substitui uma avaliação médica profissional.
+                            </p>
+                        </div>
+
+                        <div className={styles.actions}>
+                            <Link to="/extendido" className={styles.button}>
+                                Fazer nova análise
+                            </Link>
+                            <Link to="/" className={styles.button}>
+                                Voltar ao início
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-                <Link to='/' className={styles.links}>
-                    Voltar ao menu
-                </Link>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </>
     );
 }
+
 export default Result;
