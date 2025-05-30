@@ -340,8 +340,8 @@ function Extended() {
                                                 <span className={styles.buttonLabel}>Masculino</span>
                                             </label>
                                             <label className={styles.radioButton}>
-                                                <input type="radio" name="Sex" value="2"
-                                                    checked={formData.Sex === "2"}
+                                                <input type="radio" name="Sex" value="0"
+                                                    checked={formData.Sex === "0"}
                                                     onChange={e => setFormData(fd => ({ ...fd, Sex: e.target.value }))}
                                                     className={styles.radioInput} />
                                                 <span className={styles.buttonLabel}>Feminino</span>
