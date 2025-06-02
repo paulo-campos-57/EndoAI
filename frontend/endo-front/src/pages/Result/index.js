@@ -21,7 +21,7 @@ function Result() {
     if (!userName || !chanceDiabetes) return null;
 
     const percentage = parseFloat(chanceDiabetes.replace("%", ""));
-
+    let destiny = featuresImportance ? "extendido" : "simplificado";
     let message = "";
 
     if (percentage >= 80) {
@@ -50,12 +50,32 @@ function Result() {
             <div className={styles.container}>
                 <Header />
                 <div className={styles.content}>
-                    <h1>Resultado da Análise</h1>
+                    <div className={styles.title}>Resultado da Análise</div>
                     <div className={styles.resultCard}>
                         <p className={styles.greeting}>Olá, {userName}!</p>
                         <p className={styles.result}>
                             De acordo com nossa análise, você {message}
                         </p>
+
+                        {!featuresImportance && (
+                        <div className={styles.disclaimer} style={{ marginTop: '20px' }}>
+                            <p>
+                                <strong>Nota:</strong> Este é um resultado da análise simplificada.
+                                Para uma análise mais detalhada com informações sobre fatores de risco específicos,
+                                utilize a{' '}
+                                <span
+                                    onClick={() => navigate('/extendido')}
+                                    style={{
+                                        color: '#1976d2',
+                                        textDecoration: 'underline',
+                                        cursor: 'pointer'
+                                    }}
+                                >
+                                    versão extendida do formulário
+                                </span>.
+                            </p>
+                        </div>
+                        )}
 
                         {featuresImportance && (
                             <div className={styles.featuresSection}>
@@ -66,8 +86,8 @@ function Result() {
                                             key={index}
                                             className={styles.featureItem}
                                             style={{
-                                                backgroundColor: value === 0 ? "#d4edda" : "#f8d7da",
-                                                color: value === 0 ? "#155724" : "#721c24",
+                                                backgroundColor: value === 0 ? "#1b5e20" : "#c62828",
+                                                color: value === 0 ? "#FFF" : "#000",
                                             }}
                                         >
                                             <span className={styles.featureLabel}>
@@ -94,8 +114,8 @@ function Result() {
                         </div>
 
                         <div className={styles.actions}>
-                            <Link to="/extendido" className={styles.button}>
-                                Fazer nova análise
+                        <Link to={`/${destiny}`} className={styles.button}>
+                        Fazer nova análise
                             </Link>
                             <Link to="/" className={styles.button}>
                                 Voltar ao início
