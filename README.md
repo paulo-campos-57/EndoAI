@@ -49,7 +49,13 @@ Para executar o projeto, é necessário seguir os seguintes passos:
     
           pip install -r requirements.txt
       </dt>
-  - Após a instalação, navegue até a pasta app (EndoAI/backend/app) e execute o comando:
+  - <strong>Testando o back-end:</strong>
+    - Após a instalação dos requisitos no ambiente virtual, ainda na pasta EndoAI/backend execute o comando:
+      <dt>
+    
+          pytest
+      </dt>
+  - Após a instalação e testes, navegue até a pasta app (EndoAI/backend/app) e execute o comando:
       <dt>
     
           python ./app.py
@@ -61,13 +67,21 @@ Para executar o projeto, é necessário seguir os seguintes passos:
   
         npm install
     </dt>
-  - Em seguida, execcute o comando:
+  - <strong>Testando o front-end:</strong>
+    - Ainda na pasta EndoAI/frontend/endo-front, execute o comando:
+        <dt>
+    
+          npm test
+      </dt>
+    - Em seguida, pressione a (para rodar todos os testes)
+    - Com a finalização, pressione Ctrl + C para encerrar os testes
+  - Após os testes, execcute o comando:
     <dt>
   
         npm start
     </dt>
   - Com isto, o servidor estára rodando na porta 3000, e acessível via url http://localhost:3000/
-  ##
+##
 <div align="center">
   <h2>Nossos desenvolvedores</h2>
   <table>
@@ -204,7 +218,13 @@ To run this project, is necessary to follow the following steps:
     
           pip install -r requirements.txt
       </dt>
-  - After the installation, go to the app folder (EndoAI/backend/app) and use the command:
+  - <strong>Testing the back-end:</strong>
+    - After installing the requirements at the virtual enviroment, still at the EndoAI/backend folder use the command:
+      <dt>
+    
+          pytest
+      </dt>
+  - After running the tests and the installation, go to the app folder (EndoAI/backend/app) and use the command:
       <dt>
     
           python ./app.py
@@ -216,13 +236,21 @@ To run this project, is necessary to follow the following steps:
   
         npm install
     </dt>
-  - Then, use the command:
+  - <strong>Testing the front-end:</strong>
+    - Still at the EndoAI/frontend/endo-front folder, use the command:
+        <dt>
+    
+          npm test
+      </dt>
+    - After that, press a (to run all the tests)
+    - Once they're done, press Ctrl + C to finish the tests
+  - After the tests, use the command:
     <dt>
   
         npm start
     </dt>
   - After that, the server will be running in port 3000 and accessible via the URL http://localhost:3000/
-    ##
+##
 <div align="center">
   <h2>Our Developers</h2>
     <table>
