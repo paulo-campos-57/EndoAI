@@ -63,9 +63,7 @@ function Simplified() {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        const sanitizedValue = name === "Height" || name === "Weight"
-            ? value.replace(/[^0-9.]/g, '')
-            : value.replace(/\D/g, '').slice(0, 3);
+        const sanitizedValue = value.replace(/\D/g, '').slice(0, 3);
 
         setFormData((prevData) => {
             const updatedData = {
@@ -457,7 +455,7 @@ function Simplified() {
                                                 value={formData.MentHlth}
                                                 onChange={e => setFormData(fd => ({ ...fd, MentHlth: e.target.value }))}
                                                 onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 2);
                                                 }}
                                                 aria-label="9. No último mês, em quantos dias sua saúde mental não estava boa?"
                                             />
@@ -480,7 +478,7 @@ function Simplified() {
                                                 value={formData.PhysHlth}
                                                 onChange={e => setFormData(fd => ({ ...fd, PhysHlth: e.target.value }))}
                                                 onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 2);
                                                 }}
                                                 aria-label="10. No último mês, em quantos dias sua saúde física não estava boa?"
                                             />

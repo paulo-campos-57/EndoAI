@@ -70,6 +70,7 @@
     justify-content: center;
     align-items: center;
     gap: 3vh;
+    flex: 1;
 }
 
 .questionContainer {
@@ -78,16 +79,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .question {
     font-size: 3vh;
     font-weight: 800;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 0.8rem;
-    text-align: center;
+    text-align: left;
+    width: 100%;
 }
 
 .icon:hover {
@@ -101,6 +106,7 @@
     margin-top: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 
 .radioInput {

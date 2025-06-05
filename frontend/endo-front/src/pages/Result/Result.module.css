@@ -134,6 +134,22 @@
     margin: 0.2rem 0;
 }
 
+.percentageHighlight {
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.extendLink {
+    color: #1976d2;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.extendLink:hover {
+    color: #115293;
+}
 
 @media (max-width: 600px) {
     .content {

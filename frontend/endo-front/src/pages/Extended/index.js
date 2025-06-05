@@ -801,7 +801,7 @@ function Extended() {
                                                 value={formData.MentHlth}
                                                 onChange={e => setFormData(fd => ({ ...fd, MentHlth: e.target.value }))}
                                                 onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 2);
                                                 }}
                                                 aria-label="17. No último mês, em quantos dias sua saúde mental não estava boa?"
                                             />
@@ -822,7 +822,7 @@ function Extended() {
                                                 value={formData.PhysHlth}
                                                 onChange={e => setFormData(fd => ({ ...fd, PhysHlth: e.target.value }))}
                                                 onInput={(e) => {
-                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+                                                    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 2);
                                                 }}
                                                 aria-label="18. No último mês, em quantos dias sua saúde física não estava boa?"
                                             />

@@ -22,16 +22,17 @@ function Result() {
 
     const percentage = parseFloat(chanceDiabetes.replace("%", ""));
     let destiny = featuresImportance ? "extendido" : "simplificado";
-    let message = "";
+    let messageStart = "";
+    const riskPercentageText = `${percentage}% de risco.`;
 
     if (percentage >= 80) {
-        message = `possui grande chance de ter diabetes, com ${percentage}% de risco.`;
+        messageStart = `possui grande chance de ter diabetes, com `;
     } else if (percentage >= 55) {
-        message = `possui chance de ter diabetes, com ${percentage}% de risco.`;
+        messageStart = `possui chance de ter diabetes, com `;
     } else if (percentage >= 30) {
-        message = `possui pouca chance de ter diabetes, com ${percentage}% de risco.`;
+        messageStart = `possui pouca chance de ter diabetes, com `;
     } else {
-        message = `possui muito pouca chance de ter diabetes, com ${percentage}% de risco.`;
+        messageStart = `possui muito pouca chance de ter diabetes, com `;
     }
 
     const getFeatureLabel = (index) => {
@@ -54,7 +55,8 @@ function Result() {
                     <div className={styles.resultCard}>
                         <p className={styles.greeting}>Olá, {userName}!</p>
                         <p className={styles.result}>
-                            De acordo com nossa análise, você {message}
+                            De acordo com nossa análise, você {messageStart}
+                            <span className={styles.percentageHighlight}>{riskPercentageText}</span>
                         </p>
 
                         {!featuresImportance && (
@@ -65,11 +67,7 @@ function Result() {
                                 utilize a{' '}
                                 <span
                                     onClick={() => navigate('/extendido')}
-                                    style={{
-                                        color: '#1976d2',
-                                        textDecoration: 'underline',
-                                        cursor: 'pointer'
-                                    }}
+                                    className={styles.extendLink}
                                 >
                                     versão extendida do formulário
                                 </span>.
