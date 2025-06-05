@@ -51,7 +51,7 @@ function Home() {
                                 className={styles.selectionButton}
                                 onClick={() => handleClick("/extendido")}
                             >
-                                Avaliação extendida
+                                Avaliação estendida
                             </button>
                         </div>
                     </div>
