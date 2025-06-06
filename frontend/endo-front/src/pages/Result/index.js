@@ -8,6 +8,25 @@ function Result() {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const [selectedFeature, setSelectedFeature] = React.useState(null);
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+    const handleFeatureClick = (index) => {
+        setSelectedFeature(index);
+        setIsModalOpen(true);
+    };
+
+    const getFeatureExplanation = (index) => {
+        const explanations = {
+            0: "A hipertensão (pressão alta) está fortemente associada à resistência à insulina e aumenta o risco de desenvolver diabetes tipo 2.",
+            1: "O colesterol alto pode indicar disfunção metabólica, que é comum em pessoas com diabetes ou pré-diabetes.",
+            2: "Um IMC elevado (índice de massa corporal) é um dos maiores fatores de risco para diabetes tipo 2, pois está relacionado à resistência à insulina.",
+            3: "O hábito de fumar aumenta a inflamação no corpo e a resistência à insulina, elevando o risco de diabetes.",
+            4: "A prática regular de atividade física ajuda a controlar o peso e melhora a sensibilidade à insulina, reduzindo o risco de diabetes."
+        };
+        return explanations[index] || "Informação não disponível para este fator.";
+    };
+
     const userName = location.state?.userName;
     const chanceDiabetes = location.state?.chanceDiabetes;
     const featuresImportance = location.state?.featuresImportance;
@@ -60,19 +79,19 @@ function Result() {
                         </p>
 
                         {!featuresImportance && (
-                        <div className={styles.disclaimer} style={{ marginTop: '20px' }}>
-                            <p>
-                                <strong>Nota:</strong> Este é um resultado da análise simplificada.
-                                Para uma análise mais detalhada com informações sobre fatores de risco específicos,
-                                utilize a{' '}
-                                <span
-                                    onClick={() => navigate('/extendido')}
-                                    className={styles.extendLink}
-                                >
-                                    versão extendida do formulário
-                                </span>.
-                            </p>
-                        </div>
+                            <div className={styles.disclaimer} style={{ marginTop: '20px' }}>
+                                <p>
+                                    <strong>Nota:</strong> Este é um resultado da análise simplificada.
+                                    Para uma análise mais detalhada com informações sobre fatores de risco específicos,
+                                    utilize a{' '}
+                                    <span
+                                        onClick={() => navigate('/extendido')}
+                                        className={styles.extendLink}
+                                    >
+                                        versão extendida do formulário
+                                    </span>.
+                                </p>
+                            </div>
                         )}
 
                         {featuresImportance && (
@@ -83,10 +102,13 @@ function Result() {
                                         <div
                                             key={index}
                                             className={styles.featureItem}
+                                            onClick={() => handleFeatureClick(index)}
                                             style={{
                                                 backgroundColor: value === 0 ? "#1b5e20" : "#c62828",
                                                 color: value === 0 ? "#FFF" : "#000",
+                                                cursor: "pointer",
                                             }}
+                                            title="Clique para saber mais"
                                         >
                                             <span className={styles.featureLabel}>
                                                 {getFeatureLabel(index)}
@@ -112,8 +134,8 @@ function Result() {
                         </div>
 
                         <div className={styles.actions}>
-                        <Link to={`/${destiny}`} className={styles.button}>
-                        Fazer nova análise
+                            <Link to={`/${destiny}`} className={styles.button}>
+                                Fazer nova análise
                             </Link>
                             <Link to="/" className={styles.button}>
                                 Voltar ao início
@@ -123,6 +145,15 @@ function Result() {
                 </div>
                 <Footer />
             </div>
+            {isModalOpen && selectedFeature !== null && (
+                <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
+                    <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+                        <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>×</button>
+                        <h3>{getFeatureLabel(selectedFeature)}</h3>
+                        <p>{getFeatureExplanation(selectedFeature)}</p>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
