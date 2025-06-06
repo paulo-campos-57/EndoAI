@@ -122,7 +122,10 @@ def prever_diabetes_ex():
         feat_imp[1] = int(df_input["HighChol"].iloc[0])
         feat_imp[2] = int(df_input["BMI"].iloc[0] >= 30.00)
         feat_imp[3] = int(df_input["Smoker"].iloc[0])
-        feat_imp[4] = int(df_input["PhysActivity"].iloc[0])
+        if int(df_input["PhysActivity"].iloc[0]) == 1:
+            feat_imp[4] = 0
+        else:   
+            feat_imp[4] = 1
     except KeyError as e:
         return jsonify({"erro": f"Feature faltando: {e}"}), 400
 
