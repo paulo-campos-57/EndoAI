@@ -3,7 +3,7 @@
     <img src="https://skillicons.dev/icons?i=react,nodejs,python,flask" /><br>EndoAI 🇧🇷
   </h1>  
 </div>
-Repositório destinado ao projeto de dashboard para a startup Cattuccino, da disciplina de Projetos 6, do 6° período no CESAR School.<br>
+Repositório destinado ao projeto EndoAI, da disciplina de Projetos 6, do 6° período no CESAR School.<br>
 
 ## Descrição
 O projeto desenvolvido é uma interface para um modelo de machine learning que tem como principal diretriz a prevenção de casos de diabetes, <strong>sempre incentivando o usuário a buscar o diagnóstico de um profissional da saúde.</strong> Mais informações podem ser encontradas em nosso <a href="https://sites.google.com/cesar.school/endo-ai/home" target="_blank">google sites</a> e nosso <a href="https://drive.google.com/drive/folders/1NskF5VEnYzHEWuR-ODKwKahWOmKkTWXW?usp=drive_link" target="_blank">drive.</a>
@@ -26,8 +26,8 @@ Para executar o projeto, é necessário seguir os seguintes passos:
     - Insira esse arquivo na pasta EndoAI/backend: <a href="https://drive.google.com/drive/folders/1-Kt1PW9iQQM1nk8Suk2EFoSAFXZb6K4_?usp=drive_link" target="_blank">joblib(back-end)</a>
     - [Modelo simplificado] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/14cqtZLHXhVZD56xHe1-uOF40e4AiiYZE?usp=drive_link" target="_blank">joblib Simp</a>
     - [Modelo simplificado] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1XaaaQXEXGgDgDGBM1_JHOj5-3ce5wFuU?usp=drive_link" target="_blank">Modelo KNN Simp</a>
-    - [Modelo Extendido] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1ex2pqgW9Nxgju46Nj_yoea39fflTJ5tm?usp=drive_link" target="_blank">joblib Ex</a>
-    - [Modelo Extendido] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1807_LGcBnjhjEGuQ4hsLlcYXex2zANJX?usp=drive_link" target="_blank">Modelo KNN Ex</a>
+    - [Modelo Estendido] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1ex2pqgW9Nxgju46Nj_yoea39fflTJ5tm?usp=drive_link" target="_blank">joblib Ex</a>
+    - [Modelo Estendido] -> Insira esse arquivo na pasta EndoAI/backend/app: <a href="https://drive.google.com/drive/folders/1807_LGcBnjhjEGuQ4hsLlcYXex2zANJX?usp=drive_link" target="_blank">Modelo KNN Ex</a>
 - <strong>Iniciando o servidor Back-end:</strong>
   - Navegue até a pasta backend do projeto (EndoAI/backend)
   - Inicie o ambiente virtual:
@@ -61,7 +61,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
           python ./app.py
       </dt>
   - Com isto, o servidor estará rodando na porta 5000.
-- <strong>Iniciando o servidor Fornt-end</strong>
+- <strong>Iniciando o servidor Front-end</strong>
   - Navegue até a pasta de frontend do projeto (EndoAI/frontend/endo-front) e execute o comando: 
       <dt>
   
@@ -75,7 +75,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
       </dt>
     - Em seguida, pressione a (para rodar todos os testes)
     - Com a finalização, pressione Ctrl + C para encerrar os testes
-  - Após os testes, execcute o comando:
+  - Após os testes, execute o comando:
     <dt>
   
         npm start
@@ -171,7 +171,7 @@ Para executar o projeto, é necessário seguir os seguintes passos:
     <img src="https://skillicons.dev/icons?i=react,nodejs,python,flask" /><br>EndoAI 🇺🇸
   </h1>  
 </div>
-Repository dedicated to the dashboard project for the startup Cattuccino, from the Projects 6 course, in the 6th semester at CESAR School.<br>
+Repository dedicated to the EndoAI project, from the Projects 6 course, in the 6th semester at CESAR School.<br>
 
 ## Description
 The developed project is an interface for a machine learning model primarily aimed at preventing diabetes cases, <strong>always encouraging the user to seek a diagnosis from a healthcare professional.</strong> More information can be found on our <a href="https://sites.google.com/cesar.school/endo-ai/home" target="_blank">Google Sites</a> and our <a href="https://drive.google.com/drive/folders/1NskF5VEnYzHEWuR-ODKwKahWOmKkTWXW?usp=drive_link" target="_blank">Drive</a>.
